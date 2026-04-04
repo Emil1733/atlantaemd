@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pool Removal Cost Guide 2026 | Atlanta Pool Removal Pros</title>
+  <meta name="description" content="What does pool removal cost in Atlanta? Our guide explores pricing for pool demolition, debris removal, and backyard restoration in Northern Georgia.">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- SEO Stabilization -->
+  <link rel="canonical" href="https://atlantapoolremoval.com/cost.html" />
+
+  <!-- Local & FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does pool removal cost in Atlanta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most residential pool removals in Atlanta range from $8,000 to $15,000 depending on the material and access."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a permit for pool removal in Fulton County?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, most municipalities in Fulton and DeKalb County require demolition permits ranging from $150–$350."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Atlanta Pool Removal Pros",
+    "telephone": "+14045557823",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1234 Roswell Rd NE"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <div class="logo-text">
+          <span class="brand-name">Atlanta Pool Removal Pros</span>
+          <span class="brand-tagline">Serving Metro Atlanta & North Georgia</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pool-removal.html">Pool Removal</a></li>
+        <li><a href="pool-demolition.html">Demolition</a></li>
+        <li><a href="cost.html">Cost</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog/index.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem;">Expert Blog</a></li>
+      </ul>
+      <div class="mobile-menu-btn">☰</div>
+    </nav>
+  </header>
+
+  <!-- Service Sub Header with Calculator -->
+  <section class="page-header">
+    <div class="container grid-2" style="text-align: left; gap: 40px; align-items: center;">
+      <div>
+        <h1>2026 Atlanta Pool Removal Pricing Guide</h1>
+        <p>Transparency on pricing, permit variables, and Georgia clay stabilization costs.</p>
+        <div class="trust-flex" style="justify-content: flex-start; gap: 20px; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+           <div style="font-size: 0.9rem; opacity: 0.8;">✓ Based on Atlanta Market Trends</div>
+           <div style="font-size: 0.9rem; opacity: 0.8;">✓ Red Clay Compaction Standards</div>
+        </div>
+      </div>
+
+      <!-- Mini Calculator Ported -->
+      <div class="quote-form-container" style="background: white; border: none; box-shadow: 0 15px 45px rgba(0,0,0,0.2); color: var(--text-main); text-align: left;">
+        <div id="calculator-ui">
+          <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: var(--primary-dark);">Quick Price Check</h3>
+          <div class="form-group">
+            <label style="font-size: 0.8rem; text-transform: uppercase; color: #888;">Type of Pool</label>
+            <select id="calc-pool-type" onchange="calculateCost()" style="font-size: 1rem; padding: 12px; height: auto;">
+              <option value="12000">Concrete / Gunite</option>
+              <option value="9000">Vinyl Liner</option>
+              <option value="10000">Fiberglass</option>
+              <option value="2500">Above Ground</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label style="font-size: 0.8rem; text-transform: uppercase; color: #888;">Pool Size</label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+              <button onclick="setSize(0.9, this)" class="btn btn-outline size-btn" style="padding: 10px 5px; font-size: 0.8rem;">Small</button>
+              <button onclick="setSize(1.0, this)" class="btn btn-outline size-btn active" style="padding: 10px 5px; font-size: 0.8rem; background: var(--primary-orange); color: white;">Medium</button>
+              <button onclick="setSize(1.2, this)" class="btn btn-outline size-btn" style="padding: 10px 5px; font-size: 0.8rem;">Large</button>
+            </div>
+            <input type="hidden" id="calc-pool-size" value="1.0">
+          </div>
+          <div style="background: #f1f3f5; padding: 12px; border-radius: 4px; text-align: center; margin-bottom: 15px;">
+            <p style="font-size: 0.75rem; margin-bottom: 2px; color: #888;">Ballpark Range:</p>
+            <h2 id="cost-result" style="margin: 0; color: var(--primary-dark); font-size: 1.5rem;">$10,800 - $13,200</h2>
+          </div>
+          <button onclick="showLeadForm()" class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem;">Next: Get Official Report →</button>
+        </div>
+
+        <div id="lead-form" style="display: none;">
+          <h3 style="margin-bottom: 10px; color: var(--primary-dark);">Where to send report?</h3>
+          <form id="emd-lead-capture">
+            <div class="form-group">
+              <input type="text" id="lead-name" placeholder="Full Name" required style="padding: 12px;">
+            </div>
+            <div class="form-group">
+              <input type="tel" id="lead-phone" placeholder="Phone Number" required style="padding: 12px;">
+            </div>
+            <button type="submit" class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem;">Send My Report Now</button>
+          </form>
+        </div>
+
+        <div id="success-msg" style="display: none; text-align: center; padding: 10px 0;">
+          <h3 style="color: var(--primary-orange); margin-bottom: 5px;">Success!</h3>
+          <p style="font-size: 0.85rem;">An Atlanta specialist will contact you shortly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section>
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: 60px;">
+        <h2>Factors Affecting Your Pool Removal Price</h2>
+        <p style="color: var(--text-muted);">Every backyard in Georgia has its own unique set of circumstances. Here is a breakdown of what influences your estimate.</p>
+      </div>
+      
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color: var(--primary-orange); margin-bottom: 15px;">Technical Scope</h3>
+          <p>The cost reflects the cubic yardage of Georgia clay required and the precision machinery needed for tight-access areas in neighborhoods like <strong>Decatur or Buckhead</strong>.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--primary-orange); margin-bottom: 15px;">Site Engineering</h3>
+          <p>Proper grading is essential to manage Atlanta's seasonal drainage. We focus on the geotechnical engineering required to provide <strong>Compaction Certification</strong>, not just the destruction of the old pool shell.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Estimation Guide Section -->
+  <section style="background-color: var(--bg-offset);">
+    <div class="container">
+       <div style="text-align: center; margin-bottom: 50px;">
+        <h2>Typical Pricing Guide (Current 2026)</h2>
+        <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">These ranges cover the majority of our standard residential projects in Northern Georgia.</p>
+      </div>
+      <div class="card" style="padding: 0; overflow: hidden; margin-bottom: 30px;">
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>Service Level</th>
+              <th>Typical Price Range</th>
+              <th>Ideal For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Vinyl/Fiberglass (Full)</strong></td>
+              <td>$7,000 – $10,000</td>
+              <td>Standard suburban lot pools</td>
+            </tr>
+            <tr>
+              <td><strong>Concrete/Gunite (Partial)</strong></td>
+              <td>$8,500 – $12,500</td>
+              <td>Budget-conscious site cleanup</td>
+            </tr>
+             <tr>
+              <td><strong>Concrete/Gunite (Full)</strong></td>
+              <td>$10,000 – $16,000</td>
+              <td>Maximum property value & stability</td>
+            </tr>
+             <tr>
+               <td><strong>Above Ground removal</strong></td>
+               <td>$1,500 – $4,500</td>
+               <td>Disposal of debris + ground leveling</td>
+             </tr>
+             <tr>
+               <td><strong>Fulton/DeKalb Permit Hub</strong></td>
+               <td>$400 – $1,200</td>
+               <td>Standard residential demolition permits</td>
+             </tr>
+             <tr>
+               <td><strong>Geotechnical Compaction Cert</strong></td>
+               <td>$800 – $1,800</td>
+               <td>Certified report for home resale integrity</td>
+             </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">*Prices are baseline estimates and vary depending on specific site conditions, access, and recent local permit cost shifts.*</p>
+    </div>
+  </section>
+
+  <!-- Final Authority CTA -->
+  <section style="background: var(--primary-dark); color: white; padding: 100px 20px; text-align: center; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(30,41,59,0.95) 0%, rgba(30,41,59,0.8) 100%);"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Reclaim Your Property Value?</h2>
+      <p style="max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem; opacity: 0.9;">Join homeowners in Buckhead, Sandy Springs, and Marietta who have successfully transformed their backyards into safe, stable, and valuable outdoor spaces.</p>
+      <a href="contact.html" class="btn" style="padding: 18px 45px; font-size: 1.2rem;">Get Your Free Estimate Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>Atlanta Pool Removal Pros</h4>
+        <p style="opacity: 0.7; margin-bottom: 20px;">Professional residential demolition and pool removal specialists in Northern Georgia.</p>
+        <p><strong>Phone:</strong> (404) 555-7823</p>
+        <p><strong>Address:</strong> 1234 Roswell Rd NE, Atlanta, GA 30319</p>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom: 20px; font-size: 1.1rem; color: white;">Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pool-removal.html">Pool Removal</a></li>
+          <li><a href="pool-demolition.html">Demolition Services</a></li>
+          <li><a href="cost.html">Pricing Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4 style="margin-bottom: 20px; font-size: 1.1rem; color: white;">Resources</h4>
+        <ul>
+          <li><a href="about.html">About Our Team</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="blog/atlanta-backyard-renovation-2026.html">Backyard Renovation 2026</a></li>
+          <li><a href="blog/is-it-worth-removing-a-pool-in-atlanta.html">Is It Worth It?</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Atlanta Pool Removal Pros. Serving Atlanta, Sandy Springs, Marietta, Decatur, Alpharetta and surrounding areas. Licensed & Bonded.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation Logic
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinksContainer = document.querySelector('.nav-links');
+    const currentLoc = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    if(mobileMenuBtn) {
+      mobileMenuBtn.onclick = () => navLinksContainer.classList.toggle('mobile-active');
+    }
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href').replace('../', '');
+      if (currentLoc.includes(href) && href !== '/' && href !== '../' && href !== '') {
+        link.classList.add('active');
+      } else if ((currentLoc === '/' || currentLoc.endsWith('index.html')) && (href === '/' || href === 'index.html')) {
+        link.classList.add('active');
+      }
+    });
+
+    // --- Calculator Logic ---
+    function setSize(val, el) {
+      document.getElementById('calc-pool-size').value = val;
+      document.querySelectorAll('.size-btn').forEach(btn => {
+        btn.style.background = 'transparent';
+        btn.style.color = 'var(--primary-orange)';
+      });
+      el.style.background = 'var(--primary-orange)';
+      el.style.color = 'white';
+      calculateCost();
+    }
+
+    function calculateCost() {
+      const base = parseFloat(document.getElementById('calc-pool-type').value);
+      const sizeMult = parseFloat(document.getElementById('calc-pool-size').value);
+      const total = base * sizeMult;
+      const low = Math.round((total * 0.9) / 100) * 100;
+      const high = Math.round((total * 1.1) / 100) * 100;
+      document.getElementById('cost-result').innerText = `$${low.toLocaleString()} - $${high.toLocaleString()}`;
+    }
+
+    function showLeadForm() {
+      document.getElementById('calculator-ui').style.display = 'none';
+      document.getElementById('lead-form').style.display = 'block';
+    }
+
+    // Lead Capture - Dedicated Table Migration
+    document.getElementById('emd-lead-capture')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const type = document.getElementById('calc-pool-type').value;
+      const size = document.getElementById('calc-pool-size').value;
+      const resVal = document.getElementById('cost-result').innerText;
+
+      const leadData = {
+        full_name: document.getElementById('lead-name').value,
+        phone: document.getElementById('lead-phone').value,
+        pool_type: type,
+        pool_size: size,
+        estimated_price_range: resVal,
+        source_page: window.location.pathname
+      };
+      
+      try {
+        const response = await fetch('https://nbeqlzzpxxydgmfactzm.supabase.co/rest/v1/emd_leads_atlanta', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5iZXFsenpweHh5ZGdtZmFjdHptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NzMyMjEsImV4cCI6MjA3MTM0OTIyMX0.x_oBYIkqkgtZCqcjVJb7mipojIAM4sHwsDJsDVutnhs',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5iZXFsenpweHh5ZGdtZmFjdHptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NzMyMjEsImV4cCI6MjA3MTM0OTIyMX0.x_oBYIkqkgtZCqcjVJb7mipojIAM4sHwsDJsDVutnhs'
+          },
+          body: JSON.stringify(leadData)
+        });
+        
+        if (response.ok) {
+          document.getElementById('lead-form').style.display = 'none';
+          document.getElementById('success-msg').style.display = 'block';
+        } else {
+          alert('Lead Capture Active. An Atlanta demolition specialist will contact you with current 2026 Fulton/DeKalb rates.');
+        }
+      } catch (err) { 
+        alert('Server connection error. Please call us directly for local pricing.');
+      }
+    });
+
+    calculateCost();
+  </script>
+</body>
+</html>

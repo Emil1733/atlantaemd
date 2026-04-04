@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /blog/
+Disallow: /.env.local
+Disallow: /verify_supabase.js
+
+Sitemap: https://atlantapoolremoval.com/sitemap.xml
