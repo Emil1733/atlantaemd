@@ -1,0 +1,150 @@
+/* Calculator Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.calc-modal {
+    background: white;
+    width: 95%;
+    max-width: 550px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .calc-modal {
+    transform: translateY(0);
+}
+
+.calc-header {
+    background: var(--primary-dark);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.calc-header h3 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.calc-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.calc-body {
+    padding: 30px;
+}
+
+.calc-step {
+    display: none;
+}
+
+.calc-step.active {
+    display: block;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.calc-btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.calc-option {
+    border: 2px solid #eee;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.calc-option:hover {
+    border-color: var(--primary-orange);
+    background: #fff8f5;
+}
+
+.calc-option.selected {
+    border-color: var(--primary-orange);
+    background: var(--primary-orange);
+    color: white;
+}
+
+.calc-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.calc-progress {
+    height: 4px;
+    background: #eee;
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--primary-orange);
+    width: 33%;
+    transition: width 0.3s ease;
+}
+
+/* Floating Sticky CTA for Mobile */
+.sticky-mobile-cta {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: var(--primary-orange);
+    color: white;
+    padding: 15px;
+    border-radius: 50px;
+    text-align: center;
+    font-weight: 800;
+    box-shadow: 0 10px 20px rgba(255, 111, 0, 0.4);
+    z-index: 999;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* Styles for mobile sticky when visible */
+    .sticky-mobile-cta {
+        /* No fixed display here, controlled by scroll JS */
+    }
+}

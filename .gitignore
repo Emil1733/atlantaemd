@@ -3,3 +3,19 @@
 node_modules/
 .DS_Store
 Thumbs.db
+
+# Logs & Research
+*.txt
+*.log
+gsc_credentials.json
+improvements.md
+interlinking.md
+audit_utf8.txt
+gsc_utf8.txt
+gsc_utf8_2.txt
+gsc_final.txt
+gsc_final_2.txt
+gsc_manager.js
+gsc_audit.js
+package-lock.json
+package.json

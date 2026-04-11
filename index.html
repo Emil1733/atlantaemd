@@ -6,6 +6,7 @@
   <title>Atlanta Pool Removal Experts | Local Resource & Demolition Guide</title>
   <meta name="description" content="The definitive local resource for pool removal in Atlanta. Expert guides on Georgia clay compaction, local permit requirements, and current 2026 cost trends for Marietta, Sandy Springs, and Decatur.">
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/calculator.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -82,88 +83,77 @@
         <li><a href="cost.html">Cost</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="blog/index.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem;">Expert Blog</a></li>
+        <li><a href="blog/" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem;">Expert Blog</a></li>
       </ul>
       <div class="mobile-menu-btn">☰</div>
     </nav>
   </header>
 
-  <!-- Hero Section with Integrated Calculator -->
-  <section class="hero" style="padding: 60px 20px; min-height: auto; align-items: flex-start;">
+  <!-- Hero Section -->
+  <section class="hero">
     <div class="hero-overlay"></div>
-    <div class="container grid-2" style="position: relative; z-index: 2; gap: 40px;">
-      
-      <div class="hero-content" style="padding-top: 40px;">
-        <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--primary-orange); margin-bottom: 15px;">Atlanta's Expert Resource</p>
-        <h1 style="font-size: 3rem; margin-bottom: 20px;">Atlanta's Resource for Expert Pool Removal</h1>
-        <p style="font-size: 1.2rem; margin-bottom: 30px;">We help Atlanta homeowners turn old, unused pools into beautiful new backyards. Start your estimate in 10 seconds.</p>
-        
+    <div class="container grid-2" style="position: relative; z-index: 2;">
+      <div class="hero-content">
+        <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--primary-orange); margin-bottom: 15px;">Licensed & Bonded Atlanta Specialists</p>
+        <h1 style="margin-bottom: 20px;">Pool Removal in Atlanta, GA (Full Demolition & Pool Abandonment)</h1>
+        <p style="margin-bottom: 35px; opacity: 0.9;">We help Atlanta homeowners turn old, unused pools into beautiful new backyards. Start your estimate in 10 seconds.</p>
+        <div class="hero-ctas">
+          <a href="#quote-form" class="btn open-calc">Get Instant Cost Estimate</a>
+          <a href="tel:4045557823" class="btn btn-outline" style="color: white; border-color: white;">Call (404) 555-7823</a>
+        </div>
         <div class="trust-flex" style="justify-content: flex-start; gap: 20px; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-           <div style="font-size: 0.9rem; opacity: 0.8;">✓ Fulton County Permit Hub</div>
+           <div style="font-size: 0.9rem; opacity: 0.8;"><a href="atlanta-pool-removal-permits.html" style="color: inherit; text-decoration: none;">✓ Fulton County Permit Hub</a></div>
            <div style="font-size: 0.9rem; opacity: 0.8;">✓ Compaction Certification</div>
            <div style="font-size: 0.9rem; opacity: 0.8;">✓ GA Red Clay Experts</div>
         </div>
       </div>
 
-      <!-- Super Simple Mini Calculator -->
-      <div class="quote-form-container" style="background: white; border: none; box-shadow: 0 15px 45px rgba(0,0,0,0.2);">
-        
+      <!-- Live Embedded Calculator -->
+      <div class="quote-form-container" style="background: white; border: none; box-shadow: 0 15px 45px rgba(0,0,0,0.2); color: var(--text-main); text-align: left; position: relative; z-index: 10;">
         <div id="calculator-ui">
-          <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: var(--primary-dark);">Atlanta Price Check (2026)</h3>
-          <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Based on Atlanta market conditions (Fulton/DeKalb/Cobb) including red clay compaction considerations.</p>
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">See what your project might cost in 2026:</p>
-          
+          <h3 style="margin-bottom: 20px; font-size: 1.4rem; color: var(--primary-dark);">Quick Price Check</h3>
           <div class="form-group">
-            <label style="font-size: 0.8rem; text-transform: uppercase; color: #888;">1. What kind of pool?</label>
-            <select id="calc-pool-type" onchange="calculateCost()" style="font-size: 1.1rem; padding: 15px;">
+            <label style="font-size: 0.8rem; text-transform: uppercase; color: #888;">Type of Pool</label>
+            <select id="calc-pool-type" onchange="calculateCost()" style="font-size: 1rem; padding: 12px; height: auto;">
               <option value="12000">Concrete / Gunite</option>
               <option value="9000">Vinyl Liner</option>
               <option value="10000">Fiberglass</option>
               <option value="2500">Above Ground</option>
             </select>
           </div>
-          
           <div class="form-group">
-            <label style="font-size: 0.8rem; text-transform: uppercase; color: #888;">2. How big is it?</label>
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
-              <button onclick="setSize(0.9, this)" class="btn btn-outline size-btn" style="padding: 10px 5px; font-size: 0.9rem;">Small</button>
-              <button onclick="setSize(1.0, this)" class="btn btn-outline size-btn active" style="padding: 10px 5px; font-size: 0.9rem; background: var(--primary-orange); color: white;">Medium</button>
-              <button onclick="setSize(1.2, this)" class="btn btn-outline size-btn" style="padding: 10px 5px; font-size: 0.9rem;">Large</button>
+            <label style="font-size: 0.8rem; text-transform: uppercase; color: #888;">Pool Size</label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+              <button onclick="setSize(0.9, this)" class="btn btn-outline size-btn" style="padding: 10px 5px; font-size: 0.8rem;">Small</button>
+              <button onclick="setSize(1.0, this)" class="btn btn-outline size-btn active" style="padding: 10px 5px; font-size: 0.8rem; background: var(--primary-orange); color: white;">Medium</button>
+              <button onclick="setSize(1.2, this)" class="btn btn-outline size-btn" style="padding: 10px 5px; font-size: 0.8rem;">Large</button>
             </div>
             <input type="hidden" id="calc-pool-size" value="1.0">
           </div>
-          
-          <div style="background: #f1f3f5; padding: 15px; border-radius: 4px; text-align: center; margin-bottom: 20px;">
+          <div style="background: #f1f3f5; padding: 12px; border-radius: 4px; text-align: center; margin-bottom: 15px;">
             <p style="font-size: 0.75rem; margin-bottom: 2px; color: #888;">Ballpark Range:</p>
-            <h2 id="cost-result" style="margin: 0; color: var(--primary-dark);">$10,800 - $13,200</h2>
+            <h2 id="cost-result" style="margin: 0; color: var(--primary-dark); font-size: 1.5rem;">$10,800 - $13,200</h2>
           </div>
-          
-          <button onclick="showLeadForm()" class="btn" style="width: 100%; padding: 18px; font-size: 1.2rem;">Next: Get Official Report →</button>
+          <button onclick="showLeadForm()" class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem;">Next: Get Official Report →</button>
         </div>
 
-        <!-- Lead Capture Form -->
         <div id="lead-form" style="display: none;">
-          <h3 style="margin-bottom: 10px;">Where should we send your report?</h3>
-          <p style="font-size: 0.9rem; margin-bottom: 20px; color: var(--text-muted);">Enter your info to lock in this estimate and get our full site setup guide.</p>
+          <h3 style="margin-bottom: 10px; color: var(--primary-dark);">Where to send report?</h3>
           <form id="emd-lead-capture">
             <div class="form-group">
-              <input type="text" id="lead-name" placeholder="Full Name" style="padding: 15px;" required>
+              <input type="text" id="lead-name" placeholder="Full Name" required style="padding: 12px;">
             </div>
             <div class="form-group">
-              <input type="tel" id="lead-phone" placeholder="Phone Number (404) 555-0000" style="padding: 15px;" required>
+              <input type="tel" id="lead-phone" placeholder="Phone Number" required style="padding: 12px;">
             </div>
-            <button type="submit" class="btn" style="width: 100%; padding: 18px; font-size: 1.2rem;">Send My Report Now</button>
-            <p style="text-align: center; font-size: 0.7rem; color: #aaa; margin-top: 15px; cursor: pointer;" onclick="resetCalc()">← Back to calculator</p>
+            <button type="submit" class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem;">Send My Report Now</button>
           </form>
         </div>
 
-        <!-- Success Message -->
-        <div id="success-msg" style="display: none; text-align: center; padding: 20px 0;">
-          <div style="font-size: 3rem; margin-bottom: 15px;">✅</div>
-          <h3 style="color: var(--primary-orange); margin-bottom: 10px;">You're on the list!</h3>
-          <p style="font-size: 0.9rem;">An Atlanta specialist will contact you with your full neighborhood report shortly.</p>
+        <div id="success-msg" style="display: none; text-align: center; padding: 10px 0;">
+          <h3 style="color: var(--primary-orange); margin-bottom: 5px;">Success!</h3>
+          <p style="font-size: 0.85rem;">An Atlanta specialist will contact you shortly.</p>
         </div>
-
       </div>
     </div>
   </section>
@@ -190,22 +180,80 @@
     </div>
   </section>
 
-  <!-- Main Resource Content -->
+  <!-- Main Resource Content: Skimmable Authority Version -->
   <section>
-    <div class="container grid-2">
-      <div>
-        <h2 style="margin-bottom: 24px;">Navigating Pool Removal in the Atlanta Landscape</h2>
-        <p style="margin-bottom: 20px;">Because the Atlanta metro area sits on a unique geological foundation of metamorphic rock and heavy red clay, pool removal here is more complex than simple demolition. Our resource was built to provide transparency for homeowners in <strong>Marietta, Sandy Springs, and Decatur</strong> who are looking to reclaim their land.</p>
-        
-        <h3 style="margin-top: 30px; margin-bottom: 15px;">The "Georgia Clay" Factor</h3>
-        <p style="margin-bottom: 20px;">Unlike the sandy soils of the coast, Atlanta’s clay-heavy ground expands significantly with moisture and contracts during summer droughts. If a pool is simply buried or improperly backfilled, you risk "sinkholes" that can destroy your property value. We advocate for a <strong>Full Demolition</strong> strategy—breaking the shell into specialized drainage layers as detailed in our <a href="pool-demolition.html" style="color: var(--primary-orange); font-weight: 600; text-decoration: underline;">demolition walkthrough</a>—to ensure long-term stability.</p>
-        <p style="max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem;">While we are local specialists in Northern Georgia, we leverage <a href="https://toppoolremoval.com" target="_blank" style="color: var(--primary-orange); text-decoration: underline;">national compaction standards</a> to ensure every level of structural integrity is met to the highest degree.</p>
-
-        <h3 style="margin-top: 30px; margin-bottom: 15px;">Targeted Neighborhood Expertise</h3>
-        <p style="margin-bottom: 20px;">Each Atlanta sub-market comes with its own hurdle. In <strong>Buckhead and historic Decatur</strong>, we focus on tight-access demolition where heavy machinery must be replaced by precision mini-excavators. In <strong>Alpharetta and Roswell</strong>, the focus is often on strict HOA compliance and structural grading for steep-sloped lots. See our <a href="cost.html" style="color: var(--primary-orange); font-weight: 600; text-decoration: underline;">full cost guide</a> to see how neighborhood variables impact pricing.</p>
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <h2>Navigating the Atlanta Pool Removal Landscape</h2>
+        <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; font-size: 1.1rem;">Atlanta's unique geology and strict local codes make <a href="pool-removal.html" style="color: inherit; text-decoration: underline;">pool removal options in Atlanta</a> a complex engineering task. Here is what you need to know to reclaim your land safely.</p>
       </div>
-      <div>
-        <img src="assets/process-1.png" alt="Pool demolition site in Marietta showing concrete shell removal and Georgia clay" style="border-radius: 8px; box-shadow: var(--shadow-md);">
+
+      <div class="grid-2">
+        <div>
+          <div style="margin-bottom: 40px;">
+            <h3 style="color: var(--primary-orange); display: flex; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 1.5rem; margin-right: 15px;">⛰️</span> The "Georgia Clay" Factor
+            </h3>
+            <p style="line-height: 1.7; color: #444; margin-bottom: 15px;">Unlike coastal soils, Atlanta’s <strong>heavy red clay</strong> expands and contracts violently with the weather. Proper compaction is non-negotiable to prevent <strong>"sinkholes"</strong> later.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 15px;">
+              <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: var(--primary-orange); margin-right: 10px; font-weight: bold;">★</span> <span><strong>Geotechnical Compaction:</strong> We use building-grade backfill.</span></li>
+              <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: var(--primary-orange); margin-right: 10px; font-weight: bold;">★</span> <span><strong>Moisture Control:</strong> We manage soil hydration for peak stability.</span></li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <h3 style="color: var(--primary-orange); display: flex; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 1.5rem; margin-right: 15px;">📍</span> Neighborhood-Specific Expertise
+            </h3>
+            <p style="line-height: 1.7; color: #444; margin-bottom: 20px;">Every Atlanta sub-market presents a different challenge. We tailor our equipment to your specific neighborhood.</p>
+            <div class="grid-2" style="gap: 15px;">
+              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">
+                <strong style="display: block; margin-bottom: 5px;"><a href="decatur-pool-removal.html">Decatur Pool Removal</a></strong>
+                Tight-access mini-excavation specialist.
+              </div>
+              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">
+                <strong style="display: block; margin-bottom: 5px;"><a href="alpharetta-pool-removal.html">Alpharetta</a> / <a href="roswell-pool-removal.html">Roswell</a></strong>
+                Strict HOA & <a href="pool-demolition.html">pool demolition in Atlanta</a> compliance.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img src="assets/process-1.png" alt="Pool demolition site in Marietta showing concrete shell removal and Georgia clay" style="border-radius: 12px; box-shadow: var(--shadow-md); width: 100%;">
+          <p style="font-size: 0.8rem; color: #888; text-align: center; margin-top: 15px; font-style: italic;">A "Full Demolition" project recently completed at a <a href="marietta-pool-removal.html">pool removal in Marietta</a>, GA.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abandonment vs Full Removal Section -->
+  <section style="background-color: var(--white); border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 80px 0;">
+    <div class="container">
+      <div style="max-width: 900px; margin: 0 auto;">
+        <h2 style="text-align: center; margin-bottom: 15px;">Pool Abandonment vs. Full Removal in Atlanta</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 50px;">Understand your options for reclaiming your backyard in Georgia's unique clay environment.</p>
+        <div class="grid-2" style="gap: 40px;">
+          <div class="card" style="border-left: 4px solid #aaa; background: #fdfdfd;">
+            <h3 style="margin-bottom: 15px; color: #666; font-size: 1.3rem;">Partial Removal (Abandonment)</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">The pool shell remains in the ground. The top 2-3 feet are removed, drainage holes are punched, and the area is backfilled with dirt.</p>
+            <ul style="font-size: 0.9rem; color: #555; padding-left: 0; list-style: none;">
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #28a745; margin-right: 10px;">✓</span> Lower immediate project cost</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #dc3545; margin-right: 10px;">⚠</span> Backfill is not "buildable" grade</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #dc3545; margin-right: 10px;">⚠</span> Must be disclosed during property resale</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #dc3545; margin-right: 10px;">⚠</span> Higher risk of sinkholes in Georgia clay</li>
+            </ul>
+          </div>
+          <div class="card" style="border-left: 4px solid var(--primary-orange); background: #fff;">
+            <h3 style="margin-bottom: 15px; color: var(--primary-orange); font-size: 1.3rem;">Full Engineered Removal</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">The entire pool structure is removed from the property. The area is backfilled with specialized soil and compacted in 6-8 inch "lifts."</p>
+            <ul style="font-size: 0.9rem; color: #555; padding-left: 0; list-style: none;">
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #28a745; margin-right: 10px;">✓</span> Property is declared 100% buildable</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #28a745; margin-right: 10px;">✓</span> Zero long-term settlement or sinkhole risk</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #28a745; margin-right: 10px;">✓</span> No disclosure required for future home buyers</li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #28a745; margin-right: 10px;">✓</span> Guaranteed stable in Metro Atlanta's red clay</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -256,11 +304,56 @@
     </div>
   </section>
 
+  <!-- 3-Step Process Section -->
+  <section style="background-color: var(--white);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <h2>Our 3-Step Pool Removal Process in Atlanta</h2>
+        <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto; font-size: 1.1rem;">We take the stress out of your backyard renovation by following a strict geotechnical-grade workflow from start to finish.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card" style="text-align: center; padding: 40px 20px;">
+          <div style="font-size: 3rem; margin-bottom: 25px;">📋</div>
+          <h3 style="margin-bottom: 15px; font-size: 1.4rem;">1. Permits & Planning</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">We handle all Fulton, DeKalb, or Cobb County permits and utility markings before any equipment arrives, ensuring total compliance.</p>
+        </div>
+        <div class="card" style="text-align: center; padding: 40px 20px;">
+          <div style="font-size: 3rem; margin-bottom: 25px;">🏗️</div>
+          <h3 style="margin-bottom: 15px; font-size: 1.4rem;">2. Demolition & Removal</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">The pool structure is completely broken down. All concrete and debris are hauled away to authorized recycling facilities.</p>
+        </div>
+        <div class="card" style="text-align: center; padding: 40px 20px;">
+          <div style="font-size: 3rem; margin-bottom: 25px;">🛡️</div>
+          <h3 style="margin-bottom: 15px; font-size: 1.4rem;">3. Engineered Backfill</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">We fill the cavity with structural-grade soil, compacted in 6-inch layers to 95% density to prevent future sinkholes and ensure technical stabilization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section style="padding: 80px 0; background-color: var(--bg-offset);">
     <div class="container">
       <div class="testimonial-card">
         <img src="assets/testimonial.png" alt="Finished backyard restoration in Sandy Springs after professional pool removal" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px; border: 3px solid var(--primary-orange);">
         <p class="testimonial-text">"The pool was original to our house in Marietta and hadn't been used in years. They cleared it out in less than a week. The result was exactly what we needed—a clean slate for our new garden."</p>
         <p class="testimonial-author">John M. – Atlanta Homeowner</p>
+      </div>
+
+      <!-- More Testimonials -->
+      <div class="grid-3" style="margin-top: 50px; gap: 30px;">
+        <div class="testimonial-small" style="background: white; padding: 25px; border-radius: 8px; box-shadow: var(--shadow-sm); text-align: center;">
+          <p style="font-size: 0.9rem; font-style: italic; margin-bottom: 15px; color: #555;">"The team handled all the Fulton County permits flawlessly. We didn't have to lift a finger during the whole process."</p>
+          <p style="font-weight: 700; font-size: 0.85rem; color: var(--primary-orange);">– Sarah W., Sandy Springs</p>
+        </div>
+        <div class="testimonial-small" style="background: white; padding: 25px; border-radius: 8px; box-shadow: var(--shadow-sm); text-align: center;">
+          <p style="font-size: 0.9rem; font-style: italic; margin-bottom: 15px; color: #555;">"Expert compaction in Buckhead. No settling issues even after 2 years of heavy Georgia rain. Highly recommend."</p>
+          <p style="font-weight: 700; font-size: 0.85rem; color: var(--primary-orange);">– David L., Buckhead</p>
+        </div>
+        <div class="testimonial-small" style="background: white; padding: 25px; border-radius: 8px; box-shadow: var(--shadow-sm); text-align: center;">
+          <p style="font-size: 0.9rem; font-style: italic; margin-bottom: 15px; color: #555;">"They know the local soil inside out. Their approach to clay compaction gave us the confidence to build our new deck."</p>
+          <p style="font-weight: 700; font-size: 0.85rem; color: var(--primary-orange);">– Michael R., Decatur</p>
+        </div>
       </div>
     </div>
   </section>
@@ -368,18 +461,135 @@
   </script>
 
   <!-- Live Google Map -->
+  <!-- Emotional/Financial Triggers Section -->
+  <section style="padding: 100px 0; background-color: var(--white); border-top: 1px solid #eee;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Why Atlanta Homeowners Reclaim Their Backyards</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Pool removal is an investment in your property's safety, value, and future.</p>
+      </div>
+      <div class="grid-2" style="gap: 50px; align-items: center;">
+        <div>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 30px;">
+              <h3 style="margin-bottom: 10px; font-size: 1.2rem; color: var(--primary-dark);">📈 Increase Property Value</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">An unused, aging pool is often seen as a liability by buyers. Removing it creates a "blank canvas" for landscaping and decks, making your home more attractive for resale.</p>
+            </li>
+            <li style="margin-bottom: 30px;">
+              <h3 style="margin-bottom: 10px; font-size: 1.2rem; color: var(--primary-dark);">🛡️ Eliminate Safety Liability</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Old pools are significant safety risks. Professional removal removes the drowning hazard and the structural danger of a collapsing or neglected shell.</p>
+            </li>
+            <li style="margin-bottom: 30px;">
+              <h3 style="margin-bottom: 10px; font-size: 1.2rem; color: var(--primary-dark);">💰 Stop Maintenance Losses</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Stop spending thousands annually on chemicals, electricity, and repairs for a pool you don't use. Many homeowners find that the <a href="cost.html">pool removal cost in Atlanta</a> is recouped in less than 3 years.</p>
+            </li>
+          </ul>
+        </div>
+        <div style="background: var(--bg-offset); padding: 40px; border-radius: 12px; border: 1px solid #eee;">
+          <h3 style="margin-bottom: 20px; font-size: 1.4rem;">The "Final Sign-Off" Promise</h3>
+          <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.7;">Beyond just digging, we focus on the <strong>legal and structural integrity</strong> of your land. In Atlanta, an improperly closed pool can derail a home sale years later.</p>
+          <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.7;">Our process includes a final inspection that ensures your property meets all <a href="atlanta-pool-removal-permits.html">Atlanta pool removal permits</a> and structural requirements for Fulton, DeKalb, or Cobb County, providing you with a clean title and 100% peace of mind.</p>
+          <a href="contact.html" style="color: var(--primary-orange); font-weight: 700; text-decoration: underline;">Learn more about our inspection guarantee →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Final Authority CTA -->
-  <section style="background: var(--primary-dark); color: white; padding: 100px 20px; text-align: center; position: relative; overflow: hidden;">
+  <section style="background: var(--primary-dark); color: white; text-align: center; position: relative; overflow: hidden;">
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(30,41,59,0.95) 0%, rgba(30,41,59,0.8) 100%);"></div>
     <div class="container" style="position: relative; z-index: 2;">
-      <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Reclaim Your Property Value?</h2>
+      <h2 style="margin-bottom: 20px; color: white;">Ready to Reclaim Your Property Value?</h2>
       <p style="max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem; opacity: 0.9;">Join homeowners in Buckhead, Sandy Springs, and Marietta who have successfully transformed their backyards into safe, stable, and valuable outdoor spaces.</p>
-      <a href="contact.html" class="btn" style="padding: 18px 45px; font-size: 1.2rem;">Get Your Free Estimate Now</a>
+      <a href="contact.html" class="btn">Get Your Free Estimate Now</a>
     </div>
   </section>
 
 
+
+
+  <!-- Case Studies / Proof Section -->
+  <section style="background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <h2>Real Projects. Real Results.</h2>
+        <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">See how we’ve helped families across Metro Atlanta reclaim their backyards, eliminate liabilities, and increase property value.</p>
+      </div>
+      <div class="grid-3">
+        <!-- Marietta Case Study -->
+        <div class="card" style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+          <div style="height: 200px; background: #eee; border-radius: 8px 8px 0 0; overflow: hidden;">
+             <img src="assets/marietta-case-study.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Marietta pool removal case study showing full excavation results">
+          </div>
+          <div style="padding: 25px;">
+             <p style="text-transform: uppercase; font-size: 0.75rem; color: var(--primary-orange); font-weight: 800; margin-bottom: 10px;">Full Removal | Marietta</p>
+             <h4 style="margin-bottom: 15px;">Full Backyard Reclaim ($17,200)</h4>
+             <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Eliminating a leaking 35-year-old pool in West Marietta to create a safe playground for grandkids.</p>
+             <a href="pool-removal-marietta-case-study.html" style="font-weight: 700; color: var(--primary-dark);">Read Case Study →</a>
+          </div>
+        </div>
+        <!-- Sandy Springs Case Study -->
+        <div class="card" style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+          <div style="height: 200px; background: #eee; border-radius: 8px 8px 0 0; overflow: hidden;">
+             <img src="assets/sandy-springs-case-study.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Sandy Springs pool demolition project featuring complete backyard restoration">
+          </div>
+          <div style="padding: 25px;">
+             <p style="text-transform: uppercase; font-size: 0.75rem; color: var(--primary-orange); font-weight: 800; margin-bottom: 10px;">High-End Conversion | Sandy Springs</p>
+             <h4 style="margin-bottom: 15px;">Luxury Patio Reclaim ($18,500)</h4>
+             <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Preserving expensive landscaping while converting a high-maintenance pool into a luxury fire pit lounge.</p>
+             <a href="sandy-springs-pool-demolition-project.html" style="font-weight: 700; color: var(--primary-dark);">Read Case Study →</a>
+          </div>
+        </div>
+        <!-- Decatur Case Study -->
+        <div class="card" style="border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+          <div style="height: 200px; background: #eee; border-radius: 8px 8px 0 0; overflow: hidden;">
+             <img src="assets/decatur-case-study.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Decatur narrow-access pool removal project completion">
+          </div>
+          <div style="padding: 25px;">
+             <p style="text-transform: uppercase; font-size: 0.75rem; color: var(--primary-orange); font-weight: 800; margin-bottom: 10px;">Budget Option | Decatur</p>
+             <h4 style="margin-bottom: 15px;">Tight-Access Partial Fill ($9,200)</h4>
+             <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Solving the 5-foot access challenge on a historic Decatur lot to restore garden usability on a budget.</p>
+             <a href="pool-removal-decatur-case-study.html" style="font-weight: 700; color: var(--primary-dark);">Read Case Study →</a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 50px;">
+         <a href="contact.html" class="btn">Get a Quote for Your Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Neighborhood Hub (SEO Node) -->
+
+  <section style="background: #f8f9fa; border-top: 1px solid #eee;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <h3 style="color: var(--primary-dark);">Expert Pool Removal Across Metro Atlanta</h3>
+        <p style="color: var(--text-muted);">Select your neighborhood for a detailed local pricing and permit guide.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card" style="padding: 20px; background: white;">
+          <h4 style="margin-bottom: 10px;"><a href="cobb-county-pool-removal.html" style="color: inherit; text-decoration: none;">Cobb County</a></h4>
+          <a href="marietta-pool-removal.html" style="color: var(--primary-orange); font-weight: 700;">Marietta →</a>
+        </div>
+        <div class="card" style="padding: 20px; background: white;">
+          <h4 style="margin-bottom: 10px;"><a href="fulton-county-pool-removal.html" style="color: inherit; text-decoration: none;">Fulton County</a></h4>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <a href="sandy-springs-pool-removal.html" style="color: var(--primary-orange); font-weight: 700;">Sandy Springs →</a>
+            <a href="roswell-pool-removal.html" style="color: var(--primary-orange); font-weight: 700;">Roswell →</a>
+            <a href="alpharetta-pool-removal.html" style="color: var(--primary-orange); font-weight: 700;">Alpharetta →</a>
+          </div>
+        </div>
+        <div class="card" style="padding: 20px; background: white;">
+          <h4 style="margin-bottom: 10px;"><a href="dekalb-county-pool-removal.html" style="color: inherit; text-decoration: none;">DeKalb County</a></h4>
+          <a href="decatur-pool-removal.html" style="color: var(--primary-orange); font-weight: 700;">Decatur →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
+
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
@@ -402,6 +612,7 @@
         <ul>
           <li><a href="about.html">About Our Team</a></li>
           <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="atlanta-pool-removal-permits.html">Removal Permits Guide</a></li>
           <li><a href="blog/atlanta-backyard-renovation-2026.html">Backyard Renovation 2026</a></li>
           <li><a href="blog/is-it-worth-removing-a-pool-in-atlanta.html">Is It Worth It?</a></li>
         </ul>
@@ -411,6 +622,226 @@
       <p>&copy; 2026 Atlanta Pool Removal Pros. Serving Atlanta, Sandy Springs, Marietta, Decatur, Alpharetta and surrounding areas. Licensed & Bonded.</p>
     </div>
   </footer>
+
+  <!-- Modal Calculator Markup -->
+  <div class="modal-overlay" id="calc-modal-wrapper">
+    <div class="calc-modal">
+        <span class="calc-close">&times;</span>
+        <div class="calc-header">
+            <h3>Atlanta Cost Estimator</h3>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Get a 2026 price range in 30 seconds</p>
+        </div>
+        <div class="calc-progress">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="calc-body">
+            <div class="calc-step active" data-step="1">
+                <h4 style="text-align: center;">1. What type of pool are we removing?</h4>
+                <div class="calc-btn-grid">
+                    <div class="calc-option" data-value="concrete">
+                        <div style="font-size: 1.5rem;">🏗️</div>
+                        <strong>Concrete / Gunite</strong>
+                    </div>
+                    <div class="calc-option" data-value="vinyl">
+                        <div style="font-size: 1.5rem;">🏠</div>
+                        <strong>Vinyl Liner</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="calc-step" data-step="2">
+                <h4 style="text-align: center;">2. Approximate Pool Size?</h4>
+                <div class="calc-btn-grid">
+                    <div class="calc-option" data-value="small">
+                        <strong>Small</strong>
+                        <div style="font-size: 0.75rem; opacity: 0.7;">(Under 15x30)</div>
+                    </div>
+                    <div class="calc-option" data-value="medium">
+                        <strong>Medium</strong>
+                        <div style="font-size: 0.75rem; opacity: 0.7;">(Approx 16x32)</div>
+                    </div>
+                    <div class="calc-option" data-value="large">
+                        <strong>Large</strong>
+                        <div style="font-size: 0.75rem; opacity: 0.7;">(Over 20x40)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="calc-step" data-step="3">
+                <h4 style="text-align: center; margin-bottom: 20px;">3. Where should we send your results?</h4>
+                <form id="calc-lead-gate">
+                    <input type="text" id="calc-zip" class="calc-input" placeholder="Zip Code" required>
+                    <input type="text" id="calc-name" class="calc-input" placeholder="Your Name" required>
+                    <input type="tel" id="calc-phone" class="calc-input" placeholder="Phone Number" required>
+                    <button type="submit" class="btn" style="width: 100%; padding: 15px;">Calculate Estimate →</button>
+                    <p style="font-size: 0.75rem; text-align: center; margin-top: 15px; opacity: 0.6;">We never share your data. Local Atlanta estimates only.</p>
+                </form>
+            </div>
+            <div class="calc-step" data-step="4">
+                <div style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">📊</div>
+                    <h3 style="color: var(--primary-dark); margin-bottom: 5px;">Your Atlanta Estimate</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Targeting your <span id="res-type"></span></p>
+                    <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; margin: 25px 0; border: 1px solid #eee;">
+                        <h2 style="color: var(--primary-orange); font-size: 2.2rem;">$<span id="res-low">0</span> - $<span id="res-high">0</span></h2>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">*Includes GA permits and removal.</p>
+                    </div>
+                    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 25px;">A project specialist will contact you shortly to confirm your property access and provides final quote.</p>
+                    <button onclick="restartCalc()" style="background: none; border: none; color: #888; text-decoration: underline; cursor: pointer; font-size: 0.85rem;">← Start Over</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="sticky-mobile-cta open-calc">
+    🚀 Get Instant Cost Estimate
+  </div>
+
+  <script src="assets/calculator.js?v=2"></script>
+  <script src="assets/script.js" defer></script>
+  <!-- Modal Calculator Markup -->
+  <div class="modal-overlay" id="calc-modal-wrapper">
+    <div class="calc-modal">
+        <span class="calc-close">&times;</span>
+        <div class="calc-header">
+            <h3>Atlanta Cost Estimator</h3>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Get a 2026 price range in 30 seconds</p>
+        </div>
+        <div class="calc-progress">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="calc-body">
+            <div class="calc-step active" data-step="1">
+                <h4 style="text-align: center;">1. What type of pool are we removing?</h4>
+                <div class="calc-btn-grid">
+                    <div class="calc-option" data-value="concrete">
+                        <div style="font-size: 1.5rem;">🏗️</div>
+                        <strong>Concrete / Gunite</strong>
+                    </div>
+                    <div class="calc-option" data-value="vinyl">
+                        <div style="font-size: 1.5rem;">🏠</div>
+                        <strong>Vinyl Liner</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="calc-step" data-step="2">
+                <h4 style="text-align: center;">2. Approximate Pool Size?</h4>
+                <div class="calc-btn-grid">
+                    <div class="calc-option" data-value="small">
+                        <strong>Small</strong>
+                        <div style="font-size: 0.75rem; opacity: 0.7;">(Under 15x30)</div>
+                    </div>
+                    <div class="calc-option" data-value="medium">
+                        <strong>Medium</strong>
+                        <div style="font-size: 0.75rem; opacity: 0.7;">(Approx 16x32)</div>
+                    </div>
+                    <div class="calc-option" data-value="large">
+                        <strong>Large</strong>
+                        <div style="font-size: 0.75rem; opacity: 0.7;">(Over 20x40)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="calc-step" data-step="3">
+                <h4 style="text-align: center; margin-bottom: 20px;">3. Where should we send your results?</h4>
+                <form id="calc-lead-gate">
+                    <input type="text" id="calc-zip" class="calc-input" placeholder="Zip Code" required>
+                    <input type="text" id="calc-name" class="calc-input" placeholder="Your Name" required>
+                    <input type="tel" id="calc-phone" class="calc-input" placeholder="Phone Number" required>
+                    <button type="submit" class="btn" style="width: 100%; padding: 15px;">Calculate Estimate →</button>
+                    <p style="font-size: 0.75rem; text-align: center; margin-top: 15px; opacity: 0.6;">We never share your data. Local Atlanta estimates only.</p>
+                </form>
+            </div>
+            <div class="calc-step" data-step="4">
+                <div style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">📊</div>
+                    <h3 style="color: var(--primary-dark); margin-bottom: 5px;">Your Atlanta Estimate</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Targeting your <span id="res-type"></span></p>
+                    <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; margin: 25px 0; border: 1px solid #eee;">
+                        <h2 style="color: var(--primary-orange); font-size: 2.2rem;">$<span id="res-low">0</span> - $<span id="res-high">0</span></h2>
+                        <p style="font-size: 0.8rem; margin-top: 5px;">*Includes GA permits and removal.</p>
+                    </div>
+                    <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 25px;">A project specialist will contact you shortly to confirm your property access and provides final quote.</p>
+                    <button onclick="restartCalc()" style="background: none; border: none; color: #888; text-decoration: underline; cursor: pointer; font-size: 0.85rem;">← Start Over</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+  <script src="assets/calculator.js?v=2"></script>
+  <script>
+    // --- Embedded Calculator Logic ---
+    function setSize(val, el) {
+      document.getElementById('calc-pool-size').value = val;
+      document.querySelectorAll('.size-btn').forEach(btn => {
+        btn.style.background = 'transparent';
+        btn.style.color = 'var(--primary-orange)';
+      });
+      el.style.background = 'var(--primary-orange)';
+      el.style.color = 'white';
+      calculateCost();
+    }
+
+    function calculateCost() {
+      const base = parseFloat(document.getElementById('calc-pool-type').value || 12000);
+      const sizeMult = parseFloat(document.getElementById('calc-pool-size').value || 1.0);
+      const total = base * sizeMult;
+      const low = Math.round((total * 0.9) / 100) * 100;
+      const high = Math.round((total * 1.1) / 100) * 100;
+      const resEl = document.getElementById('cost-result');
+      if (resEl) resEl.innerText = `$${low.toLocaleString()} - $${high.toLocaleString()}`;
+    }
+
+    function showLeadForm() {
+      document.getElementById('calculator-ui').style.display = 'none';
+      document.getElementById('lead-form').style.display = 'block';
+    }
+
+    // Lead Capture - Dedicated Table Migration
+    document.getElementById('emd-lead-capture')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const type = document.getElementById('calc-pool-type').value;
+      const size = document.getElementById('calc-pool-size').value;
+      const resVal = document.getElementById('cost-result').innerText;
+
+      const leadData = {
+        full_name: document.getElementById('lead-name').value,
+        phone: document.getElementById('lead-phone').value,
+        pool_type: type,
+        pool_size: size,
+        estimated_price_range: resVal,
+        source_page: window.location.pathname + " (Homepage Embedded)"
+      };
+      
+      try {
+        const response = await fetch('https://nbeqlzzpxxydgmfactzm.supabase.co/rest/v1/emd_leads_atlanta', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5iZXFsenpweHh5ZGdtZmFjdHptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NzMyMjEsImV4cCI6MjA3MTM0OTIyMX0.x_oBYIkqkgtZCqcjVJb7mipojIAM4sHwsDJsDVutnhs',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5iZXFsenpweHh5ZGdtZmFjdHptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NzMyMjEsImV4cCI6MjA3MTM0OTIyMX0.x_oBYIkqkgtZCqcjVJb7mipojIAM4sHwsDJsDVutnhs'
+          },
+          body: JSON.stringify(leadData)
+        });
+        
+        if (response.ok) {
+          document.getElementById('lead-form').style.display = 'none';
+          document.getElementById('success-msg').style.display = 'block';
+        } else {
+          alert('Submission error. Please verify your phone number.');
+        }
+      } catch (err) { 
+        alert('Connection error. Please call us directly for an estimate.');
+      }
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+        calculateCost();
+    });
+  </script>
 
 </body>
 </html>
