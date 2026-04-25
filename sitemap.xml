@@ -3,62 +3,124 @@
   <!-- Core Pages -->
   <url>
     <loc>https://atlantapoolremoval.com/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://atlantapoolremoval.com/pool-removal.html</loc>
-    <lastmod>2026-04-04</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://atlantapoolremoval.com/pool-demolition.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://atlantapoolremoval.com/cost.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://atlantapoolremoval.com/about.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://atlantapoolremoval.com/contact.html</loc>
-    <lastmod>2026-04-04</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://atlantapoolremoval.com/blog/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <priority>0.7</priority>
   </url>
   
+  <!-- Regional Hubs -->
+  <url>
+    <loc>https://atlantapoolremoval.com/gwinnett-county-pool-removal.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://atlantapoolremoval.com/fulton-county-pool-removal.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://atlantapoolremoval.com/cobb-county-pool-removal.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://atlantapoolremoval.com/dekalb-county-pool-removal.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Suburban Spokes (Gwinnett) -->
+  <url>
+    <loc>https://atlantapoolremoval.com/lawrenceville-pool-removal.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://atlantapoolremoval.com/duluth-pool-removal.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://atlantapoolremoval.com/suwanee-pool-removal.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://atlantapoolremoval.com/snellville-pool-removal.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://atlantapoolremoval.com/buford-pool-removal.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Suburban Spokes (Fayette) -->
+  <url>
+    <loc>https://atlantapoolremoval.com/peachtree-city-pool-removal.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Other Locations -->
+  <url><loc>https://atlantapoolremoval.com/marietta-pool-removal.html</loc><lastmod>2026-04-25</lastmod><priority>0.9</priority></url>
+  <url><loc>https://atlantapoolremoval.com/sandy-springs-pool-removal.html</loc><lastmod>2026-04-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://atlantapoolremoval.com/roswell-pool-removal.html</loc><lastmod>2026-04-25</lastmod><priority>0.8</priority></url>
+  <url><loc>https://atlantapoolremoval.com/alpharetta-pool-removal.html</loc><lastmod>2026-04-25</lastmod><priority>0.9</priority></url>
+  <url><loc>https://atlantapoolremoval.com/decatur-pool-removal.html</loc><lastmod>2026-04-25</lastmod><priority>0.8</priority></url>
+  
   <!-- Content/Blog Pages -->
   <url>
+    <loc>https://atlantapoolremoval.com/blog/index.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://atlantapoolremoval.com/blog/atlanta-backyard-renovation-2026.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://atlantapoolremoval.com/blog/is-it-worth-removing-a-pool-in-atlanta.html</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <priority>0.6</priority>
   </url>
-  <url><loc>https://atlantapoolremoval.com/marietta-pool-removal.html</loc><lastmod>2026-04-10</lastmod><priority>0.80</priority></url>
-  <url><loc>https://atlantapoolremoval.com/sandy-springs-pool-removal.html</loc><lastmod>2026-04-10</lastmod><priority>0.80</priority></url>
-  <url><loc>https://atlantapoolremoval.com/roswell-pool-removal.html</loc><lastmod>2026-04-10</lastmod><priority>0.80</priority></url>
-  <url><loc>https://atlantapoolremoval.com/alpharetta-pool-removal.html</loc><lastmod>2026-04-10</lastmod><priority>0.80</priority></url>
-  <url><loc>https://atlantapoolremoval.com/decatur-pool-removal.html</loc><lastmod>2026-04-10</lastmod><priority>0.80</priority></url>
-  <url><loc>https://atlantapoolremoval.com/cobb-county-pool-removal.html</loc><lastmod>2026-04-10</lastmod><priority>0.70</priority></url>
-  <url><loc>https://atlantapoolremoval.com/fulton-county-pool-removal.html</loc><lastmod>2026-04-10</lastmod><priority>0.70</priority></url>
-  <url><loc>https://atlantapoolremoval.com/dekalb-county-pool-removal.html</loc><lastmod>2026-04-10</lastmod><priority>0.70</priority></url>
-  <url><loc>https://atlantapoolremoval.com/pool-removal-marietta-case-study.html</loc><lastmod>2026-04-10</lastmod><priority>0.70</priority></url>
-  <url><loc>https://atlantapoolremoval.com/sandy-springs-pool-demolition-project.html</loc><lastmod>2026-04-10</lastmod><priority>0.70</priority></url>
-  <url><loc>https://atlantapoolremoval.com/pool-removal-decatur-case-study.html</loc><lastmod>2026-04-10</lastmod><priority>0.70</priority></url>
-  <url><loc>https://atlantapoolremoval.com/atlanta-pool-removal-permits.html</loc><lastmod>2026-04-10</lastmod><priority>0.70</priority></url>
+  <url>
+    <loc>https://atlantapoolremoval.com/blog/is-your-atlanta-pool-a-money-pit.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Case Studies -->
+  <url><loc>https://atlantapoolremoval.com/pool-removal-marietta-case-study.html</loc><lastmod>2026-04-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://atlantapoolremoval.com/sandy-springs-pool-demolition-project.html</loc><lastmod>2026-04-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://atlantapoolremoval.com/pool-removal-decatur-case-study.html</loc><lastmod>2026-04-25</lastmod><priority>0.7</priority></url>
+  <url><loc>https://atlantapoolremoval.com/atlanta-pool-removal-permits.html</loc><lastmod>2026-04-25</lastmod><priority>0.7</priority></url>
 </urlset>

@@ -66,9 +66,9 @@
         <li><a href="cost.html">Cost</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="blog/" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem;">Expert Blog</a></li>
+        <li><a href="blog/index.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem;">Expert Blog</a></li>
       </ul>
-      <div class="mobile-menu-btn">☰</div>
+      <div class="mobile-menu-btn" role="button" aria-label="Toggle Navigation">☰</div>
     </nav>
   </header>
 
@@ -168,6 +168,22 @@
         <h4 style="margin-bottom: 10px;">How much does it cost in the 30328 area code?</h4>
         <p style="color: var(--text-muted); line-height: 1.6;">Average costs are slightly higher here due to stricter landfill regulations and transport times. Expect $10,000 - $16,000 for a standard concrete pool.</p>
       </div>
+  </section>
+
+  <!-- Section: Regional Hub Authority -->
+  <section style="padding: 60px 0; background: #0a192f; color: white;">
+    <div class="container">
+      <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center;">
+        <div style="border-right: 1px solid rgba(255,255,255,0.1); padding-right: 40px;">
+          <h2 style="color: var(--primary-orange); margin-bottom: 15px;">Regional Authority Hub</h2>
+          <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">Sandy Springs is a core service spoke within our broader <strong>Fulton County</strong> regional network.</p>
+        </div>
+        <div>
+          <h3 style="margin-bottom: 20px;">Consolidated Fulton Engineering</h3>
+          <p style="margin-bottom: 25px; opacity: 0.9;">While this page focuses specifically on Sandy Springs municipal codes and property values, our institutional standards are set at the county level. For a comprehensive look at permitting hierarchies, watershed regulations, and property value impacts across the entire region, visit our main hub.</p>
+          <a href="fulton-county-pool-removal.html" class="btn btn-outline" style="color: white; border-color: var(--primary-orange); display: inline-block;">Explore Fulton County Hub →</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -175,17 +191,8 @@
   <section style="padding: 100px 0; background: var(--primary-dark); text-align: center; color: white;">
     <div class="container">
       <h2 style="color: white; margin-bottom: 20px;">Start Your Sandy Springs Transformation</h2>
-      <p style="margin-bottom: 40px; opacity: 0.9;">Preserve your property value and eliminate the maintenance burden today. Understanding your <a href="pool-removal.html" style="color: white; text-decoration: underline;">pool removal options</a> is the first step.</p>
+      <p style="margin-bottom: 40px; opacity: 0.9;">Preserve your property value and eliminate the maintenance burden today.</p>
 
-      <!-- Nearby Services -->
-      <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
-        <h4 style="margin-bottom: 20px;">Other Nearby Service Locations:</h4>
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-          <a href="marietta-pool-removal.html" style="font-weight: 700; color: var(--primary-orange);">Marietta →</a>
-          <a href="roswell-pool-removal.html" style="font-weight: 700; color: var(--primary-orange);">Roswell →</a>
-          <a href="fulton-county-pool-removal.html" style="font-weight: 700; color: var(--primary-orange);">Fulton County Hub →</a>
-        </div>
-      </div>
       <a href="contact.html" class="btn" style="padding: 18px 45px;">Get Your Custom Quote</a>
     </div>
   </section>
@@ -239,11 +246,11 @@
             <div class="calc-step active" data-step="1">
                 <h4 style="text-align: center;">1. What type of pool are we removing?</h4>
                 <div class="calc-btn-grid">
-                    <div class="calc-option" data-value="concrete">
+                    <div class="calc-option" role="button" aria-label="Select Calculator Option" data-value="concrete">
                         <div style="font-size: 1.5rem;">🏗️</div>
                         <strong>Concrete / Gunite</strong>
                     </div>
-                    <div class="calc-option" data-value="vinyl">
+                    <div class="calc-option" role="button" aria-label="Select Calculator Option" data-value="vinyl">
                         <div style="font-size: 1.5rem;">🏠</div>
                         <strong>Vinyl Liner</strong>
                     </div>
@@ -252,15 +259,15 @@
             <div class="calc-step" data-step="2">
                 <h4 style="text-align: center;">2. Approximate Pool Size?</h4>
                 <div class="calc-btn-grid">
-                    <div class="calc-option" data-value="small">
+                    <div class="calc-option" role="button" aria-label="Select Calculator Option" data-value="small">
                         <strong>Small</strong>
                         <div style="font-size: 0.75rem; opacity: 0.7;">(Under 15x30)</div>
                     </div>
-                    <div class="calc-option" data-value="medium">
+                    <div class="calc-option" role="button" aria-label="Select Calculator Option" data-value="medium">
                         <strong>Medium</strong>
                         <div style="font-size: 0.75rem; opacity: 0.7;">(Approx 16x32)</div>
                     </div>
-                    <div class="calc-option" data-value="large">
+                    <div class="calc-option" role="button" aria-label="Select Calculator Option" data-value="large">
                         <strong>Large</strong>
                         <div style="font-size: 0.75rem; opacity: 0.7;">(Over 20x40)</div>
                     </div>
