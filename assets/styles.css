@@ -72,6 +72,35 @@ nav {
   margin: 0 auto;
 }
 
+/* Breadcrumbs Fix */
+.breadcrumbs {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0 !important;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  width: 100%;
+}
+
+.breadcrumbs a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.breadcrumbs a:hover {
+  opacity: 1;
+}
+
+.breadcrumbs .current {
+  color: var(--primary-orange);
+  font-weight: 600;
+}
+
 .logo {
   font-size: 1.2rem;
   font-weight: 700;
@@ -228,6 +257,29 @@ nav {
   min-height: 80vh;
 }
 
+/* Hub/Subpage Hero Variant */
+.hero-hub {
+  min-height: 45vh !important;
+  padding: 100px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center;
+}
+
+.hero-hub .container {
+  max-width: 900px !important;
+  display: block !important; /* Force block to allow centering */
+}
+
+.hero-hub .hero-ctas {
+  justify-content: center;
+}
+
+.hero-hub .trust-flex {
+  justify-content: center !important;
+}
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -354,6 +406,48 @@ nav {
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--border-light);
+}
+
+/* Mid-Page Conversion Card */
+.mid-page-cta {
+  background: var(--primary-dark);
+  color: white;
+  padding: 60px 40px;
+  border-radius: 16px;
+  margin: 60px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.mid-page-cta-content {
+  flex: 1;
+}
+
+.mid-page-cta-content h2 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.mid-page-cta-content p {
+  opacity: 0.8;
+  font-size: 1.1rem;
+}
+
+.mid-page-cta-action {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .mid-page-cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
 }
 
 .form-group {

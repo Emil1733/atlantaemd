@@ -100,6 +100,8 @@
           <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">Provide a few project details for a localized technical report, including <a href="atlanta-pool-removal-permits.html">county permit requirements</a> (Fulton/DeKalb/Cobb) and soil compaction standards.</p>
           
           <form id="contact-lead-capture">
+            <!-- HoneyPot Spam Defense -->
+            <input type="text" name="b_address" style="display:none !important" tabindex="-1" autocomplete="off">
             <div class="form-group">
               <label style="font-size: 0.8rem; text-transform: uppercase;">1. Pool Construction</label>
               <select id="contact-pool-type" required>
@@ -211,6 +213,14 @@
 
     contactForm?.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
+      // HoneyPot Verification
+      if (document.getElementsByName('b_address')[0]?.value) {
+        console.warn("Spam detected.");
+        contactUI.style.display = 'none';
+        contactSuccess.style.display = 'block'; // Fake success to confuse bots
+        return;
+      }
       
       const leadData = {
         full_name: document.getElementById('contact-name').value,

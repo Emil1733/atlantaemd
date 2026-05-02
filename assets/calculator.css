@@ -59,6 +59,7 @@
 
 .calc-body {
     padding: 30px;
+    color: var(--primary-dark);
 }
 
 .calc-step {

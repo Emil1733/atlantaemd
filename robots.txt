@@ -1,7 +1,11 @@
 User-agent: *
 Allow: /
 Allow: /blog/
+Disallow: /_secrets/
+Disallow: /_diagnostics/
+Disallow: /scratch/
+Disallow: /gsc/
 Disallow: /.env.local
-Disallow: /verify_supabase.js
+Disallow: /gsc_credentials.json
 
 Sitemap: https://atlantapoolremoval.com/sitemap.xml

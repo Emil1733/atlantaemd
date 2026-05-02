@@ -82,6 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (leadForm) {
         leadForm.onsubmit = function(e) {
             e.preventDefault();
+            
+            // HoneyPot Verification
+            if (document.getElementsByName('b_address')[0]?.value) {
+                console.warn("Spam detected.");
+                goToStep(4); // Fake success
+                return false;
+            }
+
             console.log("Form submitted, capturing data...");
             
             formData.zip = document.getElementById('calc-zip')?.value || '';
