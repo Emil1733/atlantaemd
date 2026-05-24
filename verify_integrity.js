@@ -10,7 +10,9 @@ const files = [
   'contact.html',
   'blog/index.html',
   'blog/atlanta-backyard-renovation-2026.html',
-  'blog/is-it-worth-removing-a-pool-in-atlanta.html'
+  'blog/is-it-worth-removing-a-pool-in-atlanta.html',
+  'blog/marietta-pool-removal-permit-guide.html',
+  'blog/cost-of-marietta-pool-removal-compliance.html'
 ];
 
 console.log('--- STARTING TECHNICAL INTEGRITY AUDIT ---');
