@@ -14,9 +14,9 @@ async function pullPerformance() {
   const authClient = await auth.getClient();
   const searchconsole = google.searchconsole({ version: 'v1', auth: authClient });
 
-  // Query window: May 17, 2026 to May 24, 2026
-  const startDate = '2026-05-17';
-  const endDate = '2026-05-24';
+  // Query window: May 23, 2026 to May 30, 2026
+  const startDate = '2026-05-23';
+  const endDate = '2026-05-30';
 
   console.log(`Pulling US performance data from ${startDate} to ${endDate}...`);
 
@@ -42,7 +42,7 @@ async function pullPerformance() {
       }
     });
 
-    const outputDir = path.join(__dirname, '../gsc/05-24-2026');
+    const outputDir = path.join(__dirname, '../gsc/05-30-2026');
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true });
     }
@@ -52,7 +52,7 @@ async function pullPerformance() {
       JSON.stringify(res.data, null, 2)
     );
 
-    console.log('Successfully saved raw performance data to gsc/05-24-2026/raw_performance_7d_us.json');
+    console.log('Successfully saved raw performance data to gsc/05-30-2026/raw_performance_7d_us.json');
   } catch (err) {
     console.error('Failed to pull GSC data:', err.response?.data?.error?.message || err.message);
   }

@@ -1,0 +1,84 @@
+{
+  "sites": [
+    {
+      "siteUrl": "sc-domain:scottsdalepoolremoval.com",
+      "permissionLevel": "siteOwner"
+    },
+    {
+      "siteUrl": "sc-domain:atlantapoolremoval.com",
+      "permissionLevel": "siteOwner"
+    },
+    {
+      "siteUrl": "sc-domain:bondflorida.com",
+      "permissionLevel": "siteFullUser"
+    },
+    {
+      "siteUrl": "sc-domain:nashvillepoolremoval.com",
+      "permissionLevel": "siteOwner"
+    },
+    {
+      "siteUrl": "https://www.toppoolremoval.com/",
+      "permissionLevel": "siteOwner"
+    },
+    {
+      "siteUrl": "sc-domain:mesapoolremoval.com",
+      "permissionLevel": "siteOwner"
+    },
+    {
+      "siteUrl": "sc-domain:foundationrisk.org",
+      "permissionLevel": "siteOwner"
+    },
+    {
+      "siteUrl": "sc-domain:conditionhealthy.com",
+      "permissionLevel": "siteFullUser"
+    },
+    {
+      "siteUrl": "sc-domain:poolremovaltampa.com",
+      "permissionLevel": "siteOwner"
+    },
+    {
+      "siteUrl": "sc-domain:truckcoverageexperts.com",
+      "permissionLevel": "siteFullUser"
+    },
+    {
+      "siteUrl": "sc-domain:nursinghomeaudit.com",
+      "permissionLevel": "siteFullUser"
+    }
+  ],
+  "sitemaps": "error",
+  "crawlErrors": {
+    "notFound": "skip",
+    "serverError": "skip",
+    "soft404": "skip",
+    "authPermissions": "skip",
+    "manyToOneRedirect": "skip",
+    "flashContent": "skip",
+    "notFollowed": "skip"
+  },
+  "crawlError404Samples": "error",
+  "searchAnalytics30d": {
+    "totalClicks": 0,
+    "totalImpressions": 589,
+    "pagesWithImpressions": 2,
+    "rows": [
+      {
+        "keys": [
+          "https://atlantapoolremoval.com/"
+        ],
+        "clicks": 0,
+        "impressions": 586,
+        "ctr": 0,
+        "position": 38.170648464163826
+      },
+      {
+        "keys": [
+          "https://atlantapoolremoval.com/buford-pool-removal.html"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 73.33333333333333
+      }
+    ]
+  }
+}
