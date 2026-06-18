@@ -1,0 +1,655 @@
+{
+  "dates": {
+    "current": {
+      "start": "2026-05-19",
+      "end": "2026-06-18"
+    },
+    "previous": {
+      "start": "2026-04-18",
+      "end": "2026-05-18"
+    }
+  },
+  "totals": {
+    "current": {
+      "clicks": 0,
+      "impressions": 555
+    },
+    "previous": {
+      "clicks": 0,
+      "impressions": 712
+    }
+  },
+  "queries": {
+    "current": [
+      {
+        "keys": [
+          "elan removals"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 88
+      },
+      {
+        "keys": [
+          "inground pool demolition near me"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 84
+      },
+      {
+        "keys": [
+          "longreachmachinery.com"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 56.5
+      },
+      {
+        "keys": [
+          "pool demolition alpharetta"
+        ],
+        "clicks": 0,
+        "impressions": 31,
+        "ctr": 0,
+        "position": 34.32258064516129
+      },
+      {
+        "keys": [
+          "pool demolition alpharetta ga"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 53.2
+      },
+      {
+        "keys": [
+          "pool demolition atlanta"
+        ],
+        "clicks": 0,
+        "impressions": 31,
+        "ctr": 0,
+        "position": 31.64516129032258
+      },
+      {
+        "keys": [
+          "pool demolition decatur"
+        ],
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 36.7
+      },
+      {
+        "keys": [
+          "pool demolition dunwoody"
+        ],
+        "clicks": 0,
+        "impressions": 29,
+        "ctr": 0,
+        "position": 24.03448275862069
+      },
+      {
+        "keys": [
+          "pool demolition kennesaw"
+        ],
+        "clicks": 0,
+        "impressions": 19,
+        "ctr": 0,
+        "position": 73.10526315789474
+      },
+      {
+        "keys": [
+          "pool demolition marietta"
+        ],
+        "clicks": 0,
+        "impressions": 32,
+        "ctr": 0,
+        "position": 35.875
+      },
+      {
+        "keys": [
+          "pool demolition near me"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 19
+      },
+      {
+        "keys": [
+          "pool demolition peachtree city"
+        ],
+        "clicks": 0,
+        "impressions": 29,
+        "ctr": 0,
+        "position": 55.275862068965516
+      },
+      {
+        "keys": [
+          "pool demolition roswell"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 72.66666666666667
+      },
+      {
+        "keys": [
+          "pool demolition sandy springs"
+        ],
+        "clicks": 0,
+        "impressions": 35,
+        "ctr": 0,
+        "position": 30.085714285714285
+      },
+      {
+        "keys": [
+          "pool demolition vinings"
+        ],
+        "clicks": 0,
+        "impressions": 24,
+        "ctr": 0,
+        "position": 65.33333333333333
+      },
+      {
+        "keys": [
+          "pool demolition woodstock ga"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 70
+      },
+      {
+        "keys": [
+          "pool removal"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "pool removal contractors"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "pool removal marietta ga"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 47.5
+      },
+      {
+        "keys": [
+          "pool removal near me"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9.5
+      },
+      {
+        "keys": [
+          "swimming pool removal alpharetta"
+        ],
+        "clicks": 0,
+        "impressions": 29,
+        "ctr": 0,
+        "position": 52.6551724137931
+      },
+      {
+        "keys": [
+          "swimming pool removal atlanta"
+        ],
+        "clicks": 0,
+        "impressions": 29,
+        "ctr": 0,
+        "position": 45.58620689655172
+      },
+      {
+        "keys": [
+          "swimming pool removal ball ground ga"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 80.75
+      },
+      {
+        "keys": [
+          "swimming pool removal canton ga"
+        ],
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 77.14285714285714
+      },
+      {
+        "keys": [
+          "swimming pool removal decatur"
+        ],
+        "clicks": 0,
+        "impressions": 16,
+        "ctr": 0,
+        "position": 33.4375
+      },
+      {
+        "keys": [
+          "swimming pool removal dunwoody"
+        ],
+        "clicks": 0,
+        "impressions": 34,
+        "ctr": 0,
+        "position": 29.38235294117647
+      },
+      {
+        "keys": [
+          "swimming pool removal kennesaw"
+        ],
+        "clicks": 0,
+        "impressions": 28,
+        "ctr": 0,
+        "position": 77.60714285714286
+      },
+      {
+        "keys": [
+          "swimming pool removal marietta"
+        ],
+        "clicks": 0,
+        "impressions": 33,
+        "ctr": 0,
+        "position": 46.696969696969695
+      },
+      {
+        "keys": [
+          "swimming pool removal peachtree city"
+        ],
+        "clicks": 0,
+        "impressions": 29,
+        "ctr": 0,
+        "position": 65.96551724137932
+      },
+      {
+        "keys": [
+          "swimming pool removal roswell"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "keys": [
+          "swimming pool removal sandy springs"
+        ],
+        "clicks": 0,
+        "impressions": 31,
+        "ctr": 0,
+        "position": 24.451612903225808
+      },
+      {
+        "keys": [
+          "swimming pool removal vinings"
+        ],
+        "clicks": 0,
+        "impressions": 29,
+        "ctr": 0,
+        "position": 69.89655172413794
+      },
+      {
+        "keys": [
+          "swimming pool removal woodstock ga"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 71.2
+      }
+    ],
+    "previous": [
+      {
+        "keys": [
+          "inground pool demolition near me"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "inground pool removal near me"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 18
+      },
+      {
+        "keys": [
+          "longreachmachinery.com"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 81
+      },
+      {
+        "keys": [
+          "pool demolition alpharetta"
+        ],
+        "clicks": 0,
+        "impressions": 33,
+        "ctr": 0,
+        "position": 35.78787878787879
+      },
+      {
+        "keys": [
+          "pool demolition alpharetta ga"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 35.25
+      },
+      {
+        "keys": [
+          "pool demolition atlanta"
+        ],
+        "clicks": 0,
+        "impressions": 34,
+        "ctr": 0,
+        "position": 27.176470588235293
+      },
+      {
+        "keys": [
+          "pool demolition ball ground ga"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 69.33333333333333
+      },
+      {
+        "keys": [
+          "pool demolition contractors near me"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 46
+      },
+      {
+        "keys": [
+          "pool demolition decatur"
+        ],
+        "clicks": 0,
+        "impressions": 39,
+        "ctr": 0,
+        "position": 19.82051282051282
+      },
+      {
+        "keys": [
+          "pool demolition dunwoody"
+        ],
+        "clicks": 0,
+        "impressions": 33,
+        "ctr": 0,
+        "position": 47.36363636363637
+      },
+      {
+        "keys": [
+          "pool demolition kennesaw"
+        ],
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 75.23076923076923
+      },
+      {
+        "keys": [
+          "pool demolition marietta"
+        ],
+        "clicks": 0,
+        "impressions": 31,
+        "ctr": 0,
+        "position": 36.32258064516129
+      },
+      {
+        "keys": [
+          "pool demolition peachtree city"
+        ],
+        "clicks": 0,
+        "impressions": 32,
+        "ctr": 0,
+        "position": 42.90625
+      },
+      {
+        "keys": [
+          "pool demolition roswell"
+        ],
+        "clicks": 0,
+        "impressions": 32,
+        "ctr": 0,
+        "position": 29.34375
+      },
+      {
+        "keys": [
+          "pool demolition sandy springs"
+        ],
+        "clicks": 0,
+        "impressions": 34,
+        "ctr": 0,
+        "position": 13.352941176470589
+      },
+      {
+        "keys": [
+          "pool demolition vinings"
+        ],
+        "clicks": 0,
+        "impressions": 33,
+        "ctr": 0,
+        "position": 57.333333333333336
+      },
+      {
+        "keys": [
+          "pool demolition woodstock ga"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 76
+      },
+      {
+        "keys": [
+          "pool removal 30064"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 43
+      },
+      {
+        "keys": [
+          "pool removal marietta ga"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 24.5
+      },
+      {
+        "keys": [
+          "swimming pool removal alpharetta"
+        ],
+        "clicks": 0,
+        "impressions": 36,
+        "ctr": 0,
+        "position": 24.666666666666668
+      },
+      {
+        "keys": [
+          "swimming pool removal atlanta"
+        ],
+        "clicks": 0,
+        "impressions": 38,
+        "ctr": 0,
+        "position": 35.31578947368421
+      },
+      {
+        "keys": [
+          "swimming pool removal ball ground ga"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 69.2
+      },
+      {
+        "keys": [
+          "swimming pool removal canton ga"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 89
+      },
+      {
+        "keys": [
+          "swimming pool removal decatur"
+        ],
+        "clicks": 0,
+        "impressions": 43,
+        "ctr": 0,
+        "position": 12.69767441860465
+      },
+      {
+        "keys": [
+          "swimming pool removal dunwoody"
+        ],
+        "clicks": 0,
+        "impressions": 33,
+        "ctr": 0,
+        "position": 47.27272727272727
+      },
+      {
+        "keys": [
+          "swimming pool removal kennesaw"
+        ],
+        "clicks": 0,
+        "impressions": 23,
+        "ctr": 0,
+        "position": 78.26086956521739
+      },
+      {
+        "keys": [
+          "swimming pool removal marietta"
+        ],
+        "clicks": 0,
+        "impressions": 31,
+        "ctr": 0,
+        "position": 39.25806451612903
+      },
+      {
+        "keys": [
+          "swimming pool removal peachtree city"
+        ],
+        "clicks": 0,
+        "impressions": 31,
+        "ctr": 0,
+        "position": 62.903225806451616
+      },
+      {
+        "keys": [
+          "swimming pool removal roswell"
+        ],
+        "clicks": 0,
+        "impressions": 32,
+        "ctr": 0,
+        "position": 40.9375
+      },
+      {
+        "keys": [
+          "swimming pool removal sandy springs"
+        ],
+        "clicks": 0,
+        "impressions": 40,
+        "ctr": 0,
+        "position": 12.025
+      },
+      {
+        "keys": [
+          "swimming pool removal vinings"
+        ],
+        "clicks": 0,
+        "impressions": 32,
+        "ctr": 0,
+        "position": 57
+      },
+      {
+        "keys": [
+          "swimming pool removal woodstock ga"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 76.5
+      }
+    ]
+  },
+  "pages": {
+    "current": [
+      {
+        "keys": [
+          "https://atlantapoolremoval.com/"
+        ],
+        "clicks": 0,
+        "impressions": 534,
+        "ctr": 0,
+        "position": 46.61985018726592
+      },
+      {
+        "keys": [
+          "https://atlantapoolremoval.com/buford-pool-removal.html"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 67
+      }
+    ],
+    "previous": [
+      {
+        "keys": [
+          "https://atlantapoolremoval.com/"
+        ],
+        "clicks": 0,
+        "impressions": 679,
+        "ctr": 0,
+        "position": 37.715758468335785
+      },
+      {
+        "keys": [
+          "https://atlantapoolremoval.com/buford-pool-removal.html"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 81
+      }
+    ]
+  }
+}
