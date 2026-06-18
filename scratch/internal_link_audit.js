@@ -33,6 +33,9 @@ const PAGE_TARGETS = {
   '/sandy-springs-pool-removal.html':           'pool removal sandy springs',
   '/snellville-pool-removal.html':              'pool removal snellville',
   '/suwanee-pool-removal.html':                 'pool removal suwanee',
+  '/kennesaw-pool-removal.html':                'pool removal kennesaw',
+  '/vinings-pool-removal.html':                 'pool removal vinings',
+  '/woodstock-pool-removal.html':               'pool removal woodstock',
   '/cobb-county-pool-removal.html':             'pool removal cobb county',
   '/dekalb-county-pool-removal.html':           'pool removal dekalb county',
   '/fulton-county-pool-removal.html':           'pool removal fulton county',
@@ -52,7 +55,7 @@ const PAGE_TARGETS = {
 const HUB_SPOKES = {
   '/gwinnett-county-pool-removal.html':  ['/lawrenceville-pool-removal.html', '/duluth-pool-removal.html', '/suwanee-pool-removal.html', '/snellville-pool-removal.html', '/buford-pool-removal.html'],
   '/fulton-county-pool-removal.html':    ['/alpharetta-pool-removal.html', '/roswell-pool-removal.html', '/sandy-springs-pool-removal.html'],
-  '/cobb-county-pool-removal.html':      ['/marietta-pool-removal.html'],
+  '/cobb-county-pool-removal.html':      ['/marietta-pool-removal.html', '/kennesaw-pool-removal.html', '/vinings-pool-removal.html'],
   '/dekalb-county-pool-removal.html':    ['/decatur-pool-removal.html', '/dunwoody-pool-removal.html'],
 };
 
@@ -215,6 +218,10 @@ log('AUDIT COMPLETE');
 log('══════════════════════════════════════════════════════');
 
 // Save report
-const outPath = path.join(ROOT, 'gsc/05-30-2026/internal_linking_audit.md');
+const outDir = path.join(ROOT, 'gsc/06-18-2026');
+if (!fs.existsSync(outDir)) {
+  fs.mkdirSync(outDir, { recursive: true });
+}
+const outPath = path.join(outDir, 'internal_linking_audit.md');
 fs.writeFileSync(outPath, '# Internal Linking Audit\n\n```\n' + output.join('\n') + '\n```\n');
-console.log('\n✅ Report saved to gsc/05-30-2026/internal_linking_audit.md');
+console.log('\n✅ Report saved to gsc/06-18-2026/internal_linking_audit.md');
