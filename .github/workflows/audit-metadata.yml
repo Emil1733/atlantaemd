@@ -16,6 +16,7 @@ jobs:
       - name: Audit HTML metadata
         shell: bash
         run: |
+          # Trigger metadata cleanup workflow and re-audit branch state.
           python - <<'PY'
           from pathlib import Path
           import re
@@ -27,11 +28,11 @@ jobs:
                   continue
               t=p.read_text(encoding='utf-8', errors='ignore')
               mt=re.search(r'<title>(.*?)</title>', t, re.I|re.S)
-              md=re.search(r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']', t, re.I|re.S)
+              md=re.search(r'<meta\s+name="description"\s+content="([^"]*)"', t, re.I|re.S)
               title=re.sub(r'\s+',' ',mt.group(1)).strip() if mt else ''
               desc=re.sub(r'\s+',' ',md.group(1)).strip() if md else ''
-              tw=len(re.findall(r'<meta\s+name=["\']twitter:', t, re.I))
-              og=len(re.findall(r'<meta\s+property=["\']og:', t, re.I))
+              tw=len(re.findall(r'<meta\s+name="twitter:', t, re.I))
+              og=len(re.findall(r'<meta\s+property="og:', t, re.I))
               rows.append((str(p),title,desc,tw,og))
           tc=Counter(r[1] for r in rows if r[1])
           dc=Counter(r[2] for r in rows if r[2])
