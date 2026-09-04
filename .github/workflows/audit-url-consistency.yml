@@ -16,6 +16,7 @@ jobs:
       - name: Audit sitemap canonicals and internal URLs
         shell: bash
         run: |
+          # Trigger consistency audit.
           python - <<'PY'
           from pathlib import Path
           import re, xml.etree.ElementTree as ET
