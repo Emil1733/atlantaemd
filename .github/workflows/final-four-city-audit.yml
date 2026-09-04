@@ -1,0 +1,59 @@
+name: Final four-city SEO audit
+on:
+  push:
+    branches: [seo-p2-claims-cleanup]
+permissions:
+  contents: read
+jobs:
+  audit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo-p2-claims-cleanup
+      - name: Verify experiment pages are reindex-ready
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, json
+          pages={
+            'alpharetta-pool-removal.html':('Alpharetta','fulton-county-pool-removal.html'),
+            'sandy-springs-pool-removal.html':('Sandy Springs','fulton-county-pool-removal.html'),
+            'decatur-pool-removal.html':('Decatur','dekalb-county-pool-removal.html'),
+            'dunwoody-pool-removal.html':('Dunwoody','dekalb-county-pool-removal.html'),
+          }
+          bad=[]
+          for fn,(city,parent) in pages.items():
+            t=Path(fn).read_text(encoding='utf-8')
+            expected_title=f'Pool Removal {city}, GA | Cost & Demolition'
+            expected_canon=f'https://atlantapoolremoval.com/{fn}'
+            checks={
+              'title': f'<title>{expected_title}</title>' in t,
+              'canonical': f'<link rel="canonical" href="{expected_canon}">' in t,
+              'description': bool(re.search(r'<meta name="description" content="[^\"]{80,180}">',t,re.I)),
+              'h1': f'Pool Removal in {city}, GA' in t,
+              'intent': 'city-intent-focus' in t,
+              'county-link': f'href="{parent}"' in t,
+              'cost-link': 'href="cost.html"' in t,
+              'permit-link': 'href="atlanta-pool-removal-permits.html"' in t,
+              'process-link': 'href="pool-removal.html"' in t,
+              'noindex-absent': 'noindex' not in t.lower(),
+              'old-filler-1.5-absent': '<!-- Section 1.5:' not in t,
+              'old-filler-1.7-absent': '<!-- Section 1.7:' not in t,
+            }
+            for name,ok in checks.items():
+              if not ok: bad.append((fn,name))
+            risky=['100% buildable','zero long-term settlement','zero settlement risk','zero-settling warranty','no disclosure required','immediate architectural approval','$100k+']
+            low=t.lower()
+            for phrase in risky:
+              if phrase.lower() in low: bad.append((fn,'risky:'+phrase))
+          sm=Path('sitemap.xml').read_text(encoding='utf-8')
+          for fn in pages:
+            pattern=rf'<loc>https://atlantapoolremoval\.com/{re.escape(fn)}</loc>\s*<lastmod>2026-09-04</lastmod>'
+            if not re.search(pattern,sm,re.S): bad.append(('sitemap',fn))
+          if bad:
+            print('FAIL',json.dumps(bad,indent=2)); raise SystemExit(1)
+          print('PASS: all four experiment pages are reindex-ready')
+          PY
