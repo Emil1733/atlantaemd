@@ -1,4 +1,4 @@
-name: Audit URL consistency
+name: Final URL consistency cleanup
 
 on:
   push:
@@ -6,17 +6,29 @@ on:
       - seo-p0-url-consistency
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  audit:
+  finalize:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Audit sitemap canonicals and internal URLs
+        with:
+          ref: seo-p0-url-consistency
+      - name: Refresh sitemap lastmod
         shell: bash
         run: |
-          # Trigger consistency audit.
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('sitemap.xml')
+          t=p.read_text(encoding='utf-8')
+          t=t.replace('<lastmod>2026-08-10</lastmod>','<lastmod>2026-09-04</lastmod>')
+          p.write_text(t,encoding='utf-8')
+          PY
+      - name: Verify URL consistency
+        shell: bash
+        run: |
           python - <<'PY'
           from pathlib import Path
           import re, xml.etree.ElementTree as ET
@@ -32,29 +44,33 @@ jobs:
               html.append((p,url))
           tree=ET.parse('sitemap.xml')
           ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
-          sitemap={u.find('s:loc',ns).text.strip():u for u in tree.getroot().findall('s:url',ns)}
+          entries=tree.getroot().findall('s:url',ns)
+          sitemap={u.find('s:loc',ns).text.strip():u for u in entries}
           expected={u for _,u in html}
-          print('MISSING_FROM_SITEMAP')
-          for u in sorted(expected-set(sitemap)): print(u)
-          print('EXTRA_IN_SITEMAP')
-          for u in sorted(set(sitemap)-expected): print(u)
-          print('CANONICAL_ISSUES')
+          bad=[]
+          if expected-set(sitemap): bad.append(('missing sitemap',sorted(expected-set(sitemap))))
+          if set(sitemap)-expected: bad.append(('extra sitemap',sorted(set(sitemap)-expected)))
+          for u in entries:
+              lm=u.find('s:lastmod',ns)
+              if lm is None or lm.text.strip()!='2026-09-04': bad.append(('stale lastmod',u.find('s:loc',ns).text.strip()))
           for p,url in html:
               t=p.read_text(encoding='utf-8',errors='ignore')
               m=re.search(r'<link\b[^>]*rel=["\']canonical["\'][^>]*href=["\']([^"\']+)',t,re.I)
-              if not m:
-                  print(p,'MISSING')
-              elif m.group(1).rstrip('/') != url.rstrip('/'):
-                  print(p,'=>',m.group(1),'EXPECTED',url)
-          print('BAD_INTERNAL_ABSOLUTE_URLS')
-          for p,_ in html:
-              t=p.read_text(encoding='utf-8',errors='ignore')
-              for m in re.finditer(r'(?:href|src)=["\'](https?://(?:www\.)?atlantapoolremoval\.com[^"\']*)',t,re.I):
-                  v=m.group(1)
-                  if v.startswith('http://') or '://www.' in v or '/index.html' in v:
-                      print(p,'=>',v)
-          print('BAD_RELATIVE_HOME_LINKS')
-          for p,_ in html:
-              t=p.read_text(encoding='utf-8',errors='ignore')
-              if re.search(r'href=["\'](?:\.\./)?index\.html["\']',t,re.I): print(p)
+              if not m or m.group(1).rstrip('/')!=url.rstrip('/'): bad.append(('canonical',str(p)))
+              if re.search(r'href=["\'](?:\.\./)?index\.html["\']',t,re.I): bad.append(('index home link',str(p)))
+              if re.search(r'(?:href|src)=["\']http://(?:www\.)?atlantapoolremoval\.com',t,re.I): bad.append(('http internal',str(p)))
+              if re.search(r'(?:href|src)=["\']https://www\.atlantapoolremoval\.com',t,re.I): bad.append(('www internal',str(p)))
+          if bad:
+              print(bad)
+              raise SystemExit(1)
+          print('Final URL consistency verification passed')
           PY
+      - name: Commit sitemap refresh
+        shell: bash
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add sitemap.xml
+          git commit -m 'SEO P0: refresh sitemap lastmod after cleanup'
+          git push origin HEAD:seo-p0-url-consistency
