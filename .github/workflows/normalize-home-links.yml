@@ -1,0 +1,53 @@
+name: Normalize homepage links
+
+on:
+  push:
+    branches:
+      - seo-p0-normalize-home
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: seo-p0-normalize-home
+
+      - name: Normalize homepage references
+        shell: bash
+        run: |
+          set -euo pipefail
+          find . -type f -name '*.html' -print0 | while IFS= read -r -d '' file; do
+            sed -i 's#href="\.\./index\.html"#href="/"#g' "$file"
+            sed -i 's#href="index\.html"#href="/"#g' "$file"
+            sed -i 's#https://atlantapoolremoval\.com/index\.html#https://atlantapoolremoval.com/#g' "$file"
+          done
+
+      - name: Verify old homepage references are gone
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInE --include='*.html' 'href="(\.\./)?index\.html"|https://atlantapoolremoval\.com/index\.html' .; then
+            echo 'Old homepage references remain.'
+            exit 1
+          fi
+
+      - name: Commit normalized links
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo 'No additional homepage references needed normalization.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add '*.html' 'blog/*.html' || true
+          git add -u
+          git commit -m 'fix: normalize remaining homepage references'
+          git push origin HEAD:seo-p0-normalize-home
