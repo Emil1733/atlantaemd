@@ -16,7 +16,7 @@ jobs:
       - name: Audit HTML metadata
         shell: bash
         run: |
-          # Trigger metadata cleanup workflow and re-audit branch state.
+          # Trigger corrected cleanup and audit current branch state.
           python - <<'PY'
           from pathlib import Path
           import re
@@ -24,8 +24,7 @@ jobs:
 
           rows=[]
           for p in sorted(Path('.').rglob('*.html')):
-              if any(part in {'.git','scratch','gsc','improvements','crawl_stats'} for part in p.parts):
-                  continue
+              if any(part in {'.git','scratch','gsc','improvements','crawl_stats'} for part in p.parts): continue
               t=p.read_text(encoding='utf-8', errors='ignore')
               mt=re.search(r'<title>(.*?)</title>', t, re.I|re.S)
               md=re.search(r'<meta\s+name="description"\s+content="([^"]*)"', t, re.I|re.S)
@@ -34,8 +33,7 @@ jobs:
               tw=len(re.findall(r'<meta\s+name="twitter:', t, re.I))
               og=len(re.findall(r'<meta\s+property="og:', t, re.I))
               rows.append((str(p),title,desc,tw,og))
-          tc=Counter(r[1] for r in rows if r[1])
-          dc=Counter(r[2] for r in rows if r[2])
+          tc=Counter(r[1] for r in rows if r[1]); dc=Counter(r[2] for r in rows if r[2])
           print('FILE | TITLE_LEN | DESC_LEN | TWITTER_TAGS | OG_TAGS | FLAGS')
           for path,title,desc,tw,og in rows:
               flags=[]
@@ -48,8 +46,5 @@ jobs:
               if dc[desc]>1: flags.append('DUP_DESC')
               if tw>5: flags.append('DUP_TWITTER')
               if og>5: flags.append('DUP_OG')
-              if flags:
-                  print(f'{path} | {len(title)} | {len(desc)} | {tw} | {og} | {",".join(flags)}')
-                  print('  TITLE:', title)
-                  print('  DESC :', desc)
+              if flags: print(path, '|', ','.join(flags), '|', title, '|', desc)
           PY
