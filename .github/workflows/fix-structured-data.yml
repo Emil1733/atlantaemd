@@ -1,0 +1,137 @@
+name: Clean structured data
+
+on:
+  push:
+    branches:
+      - seo-p0-structured-data-cleanup
+
+permissions:
+  contents: write
+
+jobs:
+  clean:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo-p0-structured-data-cleanup
+
+      - name: Clean schema and placeholder NAP
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, json
+
+          SKIP={'.git','scratch','gsc','improvements','crawl_stats'}
+          changed=[]
+
+          def clean_obj(obj):
+              if isinstance(obj, list):
+                  return [clean_obj(x) for x in obj]
+              if not isinstance(obj, dict):
+                  return obj
+
+              out={}
+              typ=obj.get('@type')
+              name=str(obj.get('name',''))
+              for k,v in obj.items():
+                  # Remove physical-location claims we cannot substantiate.
+                  if k in {'address','geo','openingHours','openingHoursSpecification','priceRange'}:
+                      continue
+                  out[k]=clean_obj(v)
+
+              if typ == 'LocalBusiness':
+                  out['@type']='Organization'
+              if typ == 'City' and name.lower().endswith('county'):
+                  out['@type']='AdministrativeArea'
+              return out
+
+          script_re=re.compile(r'(<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>)(.*?)(</script>)',re.I|re.S)
+
+          for p in sorted(Path('.').rglob('*.html')):
+              if any(part in SKIP for part in p.parts):
+                  continue
+              old=p.read_text(encoding='utf-8',errors='ignore')
+              new=old
+
+              def repl(m):
+                  raw=m.group(2).strip()
+                  try:
+                      data=json.loads(raw)
+                  except Exception:
+                      # Safe textual fallback for malformed but recognizable schema.
+                      body=raw.replace('"@type": "LocalBusiness"','"@type": "Organization"')
+                      body=body.replace('"@type":"LocalBusiness"','"@type":"Organization"')
+                      return m.group(1)+'\n'+body+'\n  '+m.group(3)
+                  data=clean_obj(data)
+                  body=json.dumps(data,ensure_ascii=False,indent=2)
+                  return m.group(1)+'\n'+body+'\n  '+m.group(3)
+
+              new=script_re.sub(repl,new)
+
+              # Remove the known placeholder street address from visible page content.
+              new=re.sub(r'\s*1234\s+Roswell\s+Rd\s+NE\s*,?\s*<br\s*/?>\s*Atlanta,\s*GA\s*30319\s*<br\s*/?>?', '', new, flags=re.I)
+              new=re.sub(r'\s*1234\s+Roswell\s+Rd\s+NE\s*,?\s*Atlanta,\s*GA\s*30319', '', new, flags=re.I)
+              new=re.sub(r'<p><strong>Address:</strong>\s*</p>', '', new, flags=re.I)
+              new=re.sub(r'<p><strong>Address:</strong>\s*1234\s+Roswell\s+Rd\s+NE,?\s*Atlanta,\s*GA\s*30319\s*</p>', '', new, flags=re.I)
+
+              # Homepage: add a neutral WebSite entity if none exists.
+              if p.as_posix()=='index.html' and not re.search(r'"@type"\s*:\s*"WebSite"',new,re.I):
+                  website='''\n  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "WebSite",\n    "@id": "https://atlantapoolremoval.com/#website",\n    "url": "https://atlantapoolremoval.com/",\n    "name": "Atlanta Pool Removal Pros",\n    "publisher": {\n      "@id": "https://atlantapoolremoval.com/#organization"\n    }\n  }\n  </script>\n'''
+                  new=re.sub(r'</head>',website+'</head>',new,count=1,flags=re.I)
+
+              if new!=old:
+                  p.write_text(new,encoding='utf-8')
+                  changed.append(str(p))
+
+          print('Updated',len(changed),'HTML files')
+          for x in changed: print(x)
+          PY
+
+      - name: Verify cleanup
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, json
+          SKIP={'.git','scratch','gsc','improvements','crawl_stats'}
+          bad=[]
+          json_errors=[]
+          scripts=0
+          for p in sorted(Path('.').rglob('*.html')):
+              if any(part in SKIP for part in p.parts): continue
+              t=p.read_text(encoding='utf-8',errors='ignore')
+              checks={
+                'LocalBusiness': r'"@type"\s*:\s*"LocalBusiness"',
+                'placeholder address': r'1234\s+Roswell\s+Rd\s+NE',
+                'placeholder phone': r'\(404\)\s*555-7823|\+14045557823|4045557823',
+                'geo field': r'"geo"\s*:',
+                'PostalAddress': r'"@type"\s*:\s*"PostalAddress"',
+              }
+              for label,pat in checks.items():
+                  if re.search(pat,t,re.I): bad.append((str(p),label))
+              for m in re.finditer(r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',t,re.I|re.S):
+                  scripts+=1
+                  try: json.loads(m.group(1).strip())
+                  except Exception as e: json_errors.append((str(p),str(e)))
+          if bad or json_errors:
+              print('Residual issues:')
+              for x in bad: print(x)
+              print('JSON errors:')
+              for x in json_errors: print(x)
+              raise SystemExit(1)
+          print('Structured-data verification passed for',scripts,'JSON-LD blocks')
+          PY
+
+      - name: Commit cleanup
+        shell: bash
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add '*.html' 'blog/*.html' || true
+          git add -u
+          git commit -m 'SEO P0: clean structured data and placeholder NAP'
+          git push origin HEAD:seo-p0-structured-data-cleanup
