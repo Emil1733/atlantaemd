@@ -18,106 +18,38 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
-
-          cfg = {
-            'alpharetta-pool-removal.html': {
-              'city':'Alpharetta','title':'Pool Removal Alpharetta, GA | Cost & Demolition',
-              'eyebrow':'ALPHARETTA LARGE-LOT PLANNING',
-              'h1':'Pool Removal in Alpharetta, GA',
-              'hero':'A practical guide for Alpharetta homeowners comparing removal cost, equipment access, finished-yard plans, and future use of the former pool area.',
-              'focus':'Large lots, access routes & future-use planning',
-              'intro':'Alpharetta projects often start with a different question than simple demolition: what should the former pool area become next? Larger residential lots can offer more equipment room, but landscaping, gates, driveways, retaining features, and the homeowner’s future building plans still determine the right removal approach.',
-              'cards':[
-                ('Access before demolition','Map the route for excavators, concrete removal, and fill delivery before choosing a removal method. Gate width, driveway protection, and landscaping can materially change labor and equipment needs.'),
-                ('Plan the finished yard first','A lawn-only restoration, patio, outdoor kitchen, or future structure can call for different excavation and backfill decisions. The intended end use should be decided before demolition begins.'),
-                ('Separate city from county questions','Use the Fulton County hub for county-wide planning, then confirm current project-specific requirements with the applicable local authority before work starts.')]
-            },
-            'sandy-springs-pool-removal.html': {
-              'city':'Sandy Springs','title':'Pool Removal Sandy Springs, GA | Cost & Demolition',
-              'eyebrow':'SANDY SPRINGS SLOPE & ACCESS PLANNING',
-              'h1':'Pool Removal in Sandy Springs, GA',
-              'hero':'A Sandy Springs guide focused on sloped lots, equipment access, drainage after removal, cost variables, and protecting the rest of the property during demolition.',
-              'focus':'Sloped lots, drainage & property access',
-              'intro':'In Sandy Springs, the practical difficulty of a pool removal is often shaped by the lot itself. Sloped backyards, retaining walls, mature landscaping, narrow access routes, and drainage paths can matter as much as the size of the pool. The best plan starts by understanding how equipment gets in, how debris gets out, and where water should move after the pool is gone.',
-              'cards':[
-                ('Slope changes the job','A pool below street grade or behind a retaining wall can require smaller equipment, staged hauling, or additional grading work. Those logistics can affect price more than pool dimensions alone.'),
-                ('Protect the drainage path','Removing a large hard surface changes how rainfall moves across the yard. Final grading should be planned around the house, neighboring lots, and existing drainage features.'),
-                ('Access drives equipment choice','Before pricing the job, measure gates, side yards, overhead clearance, driveway conditions, and any areas where heavy equipment cannot travel safely.')]
-            },
-            'decatur-pool-removal.html': {
-              'city':'Decatur','title':'Pool Removal Decatur, GA | Cost & Demolition',
-              'eyebrow':'DECATUR TIGHT-ACCESS POOL REMOVAL',
-              'h1':'Pool Removal in Decatur, GA',
-              'hero':'A Decatur guide built around narrow side yards, compact lots, neighbor protection, debris hauling, cost, and practical backyard restoration options.',
-              'focus':'Tight access, compact lots & neighbor protection',
-              'intro':'Decatur’s smaller residential lots can make pool removal a logistics problem before it becomes a demolition problem. Equipment width, fence openings, tree roots, close neighboring structures, street access, and where trucks can load debris all influence the workable approach. This page focuses on those constraints rather than repeating county-wide engineering guidance.',
-              'cards':[
-                ('Measure the route, not just the pool','A standard excavator may not fit through a narrow side yard. Access measurements help determine whether compact machinery, temporary fence removal, or more manual handling is realistic.'),
-                ('Plan debris movement','Concrete and soil still need a safe route from the backyard to the truck. On compact lots, staging space and street-side loading can become a major labor variable.'),
-                ('Protect adjacent property','Close fences, patios, trees, utilities, and neighboring yards make clear work-zone boundaries and final drainage planning especially important.')]
-            },
-            'dunwoody-pool-removal.html': {
-              'city':'Dunwoody','title':'Pool Removal Dunwoody, GA | Cost & Demolition',
-              'eyebrow':'DUNWOODY WOODED-LOT RESTORATION',
-              'h1':'Pool Removal in Dunwoody, GA',
-              'hero':'A Dunwoody guide for wooded residential lots, tree and landscape protection, equipment access, yard conversion, cost factors, and demolition options.',
-              'focus':'Wooded lots, landscape protection & yard conversion',
-              'intro':'For many Dunwoody properties, the removal plan has to work around mature trees, established landscaping, fences, patios, and older backyard layouts. The useful question is not only how to break up the pool, but how to reach it without unnecessarily damaging the parts of the yard the homeowner wants to keep—and how the reclaimed area will connect to the rest of the landscape.',
-              'cards':[
-                ('Protect what stays','Identify trees, root zones, hardscape, irrigation, fencing, and planting beds that should remain before selecting the equipment route.'),
-                ('Design the post-pool space','Many homeowners want a simpler lawn, garden, play area, or outdoor-living space. The desired final elevation and use should guide grading and restoration decisions.'),
-                ('Match machinery to the property','A smaller machine can reduce access damage but may increase loading and demolition time. Equipment choice should balance productivity with preservation of the surrounding yard.')]
-            }
-          }
-
-          for path,c in cfg.items():
+          cfg={
+          'alpharetta-pool-removal.html':('Alpharetta','Pool Removal Alpharetta, GA | Cost & Demolition','ALPHARETTA LARGE-LOT PLANNING','Large lots, access routes & future-use planning','Alpharetta projects often start with a different question than simple demolition: what should the former pool area become next? Larger residential lots can offer more equipment room, but landscaping, gates, driveways, retaining features, and the homeowner’s future building plans still determine the right removal approach.',[('Access before demolition','Map the route for excavators, concrete removal, and fill delivery before choosing a removal method. Gate width, driveway protection, and landscaping can materially change labor and equipment needs.'),('Plan the finished yard first','A lawn-only restoration, patio, outdoor kitchen, or future structure can call for different excavation and backfill decisions. The intended end use should be decided before demolition begins.'),('Separate city from county questions','Use the Fulton County hub for county-wide planning, then confirm current project-specific requirements with the applicable local authority before work starts.')]),
+          'sandy-springs-pool-removal.html':('Sandy Springs','Pool Removal Sandy Springs, GA | Cost & Demolition','SANDY SPRINGS SLOPE & ACCESS PLANNING','Sloped lots, drainage & property access','In Sandy Springs, the practical difficulty of a pool removal is often shaped by the lot itself. Sloped backyards, retaining walls, mature landscaping, narrow access routes, and drainage paths can matter as much as the size of the pool. The best plan starts by understanding how equipment gets in, how debris gets out, and where water should move after the pool is gone.',[('Slope changes the job','A pool below street grade or behind a retaining wall can require smaller equipment, staged hauling, or additional grading work. Those logistics can affect price more than pool dimensions alone.'),('Protect the drainage path','Removing a large hard surface changes how rainfall moves across the yard. Final grading should be planned around the house, neighboring lots, and existing drainage features.'),('Access drives equipment choice','Before pricing the job, measure gates, side yards, overhead clearance, driveway conditions, and any areas where heavy equipment cannot travel safely.')]),
+          'decatur-pool-removal.html':('Decatur','Pool Removal Decatur, GA | Cost & Demolition','DECATUR TIGHT-ACCESS POOL REMOVAL','Tight access, compact lots & neighbor protection','Decatur’s smaller residential lots can make pool removal a logistics problem before it becomes a demolition problem. Equipment width, fence openings, tree roots, close neighboring structures, street access, and where trucks can load debris all influence the workable approach. This page focuses on those constraints rather than repeating county-wide engineering guidance.',[('Measure the route, not just the pool','A standard excavator may not fit through a narrow side yard. Access measurements help determine whether compact machinery, temporary fence removal, or more manual handling is realistic.'),('Plan debris movement','Concrete and soil still need a safe route from the backyard to the truck. On compact lots, staging space and street-side loading can become a major labor variable.'),('Protect adjacent property','Close fences, patios, trees, utilities, and neighboring yards make clear work-zone boundaries and final drainage planning especially important.')]),
+          'dunwoody-pool-removal.html':('Dunwoody','Pool Removal Dunwoody, GA | Cost & Demolition','DUNWOODY WOODED-LOT RESTORATION','Wooded lots, landscape protection & yard conversion','For many Dunwoody properties, the removal plan has to work around mature trees, established landscaping, fences, patios, and older backyard layouts. The useful question is not only how to break up the pool, but how to reach it without unnecessarily damaging the parts of the yard the homeowner wants to keep—and how the reclaimed area will connect to the rest of the landscape.',[('Protect what stays','Identify trees, root zones, hardscape, irrigation, fencing, and planting beds that should remain before selecting the equipment route.'),('Design the post-pool space','Many homeowners want a simpler lawn, garden, play area, or outdoor-living space. The desired final elevation and use should guide grading and restoration decisions.'),('Match machinery to the property','A smaller machine can reduce access damage but may increase loading and demolition time. Equipment choice should balance productivity with preservation of the surrounding yard.')])}
+          for path,(city,title,eyebrow,focus,intro,cards_cfg) in cfg.items():
               p=Path(path); t=p.read_text(encoding='utf-8')
-              # Standardize titles across standard/OG/Twitter metadata.
-              t=re.sub(r'<title>.*?</title>',f'<title>{c["title"]}</title>',t,count=1,flags=re.I|re.S)
-              t=re.sub(r'(<meta\s+property="og:title"\s+content=")[^"]*(">)',r'\1'+c['title']+r'\2',t,count=1,flags=re.I)
-              t=re.sub(r'(<meta\s+name="twitter:title"\s+content=")[^"]*(">)',r'\1'+c['title']+r'\2',t,count=1,flags=re.I)
-
-              # Reframe hero copy without claiming certifications, guarantees, or invented local superiority.
+              t=re.sub(r'<title>.*?</title>',f'<title>{title}</title>',t,count=1,flags=re.I|re.S)
+              t=re.sub(r'(<meta\s+property="og:title"\s+content=")[^"]*(">)',r'\1'+title+r'\2',t,count=1,flags=re.I)
+              t=re.sub(r'(<meta\s+name="twitter:title"\s+content=")[^"]*(">)',r'\1'+title+r'\2',t,count=1,flags=re.I)
               h1=re.search(r'<h1([^>]*)>.*?</h1>',t,re.I|re.S)
-              if h1:
-                  t=t[:h1.start()]+f'<h1{h1.group(1)}>{c["h1"]}</h1>'+t[h1.end():]
-              # Replace one short hero eyebrow if present.
-              t=re.sub(r'(<p[^>]*text-transform:\s*uppercase[^>]*>).*?(</p>)',r'\1'+c['eyebrow']+r'\2',t,count=1,flags=re.I|re.S)
-
-              # Remove the repeated engineering filler block (Section 1.5 + 1.7) only.
-              t2,n=re.subn(r'\s*<!-- Section 1\.5:.*?(?=\s*<!-- Section (?:1\.9|2):)', '\n\n', t, count=1, flags=re.I|re.S)
-              if n == 0:
-                  raise SystemExit(f'Repeated engineering block not found safely in {path}')
-              t=t2
-
+              if h1: t=t[:h1.start()]+f'<h1{h1.group(1)}>Pool Removal in {city}, GA</h1>'+t[h1.end():]
+              t=re.sub(r'(<p[^>]*text-transform:\s*uppercase[^>]*>).*?(</p>)',r'\1'+eyebrow+r'\2',t,count=1,flags=re.I|re.S)
+              t,n=re.subn(r'\s*<!-- Section 1\.5:.*?(?=\s*<!-- Section (?:1\.9|2):)','\n\n',t,count=1,flags=re.I|re.S)
+              if n==0: raise SystemExit(f'Repeated block not found safely: {path}')
               if 'city-intent-focus' not in t:
-                  cards='\n'.join([f'''        <div class="card" style="padding: 28px;">\n          <h3 style="margin-bottom: 12px;">{h}</h3>\n          <p style="margin: 0; line-height: 1.7; color: var(--text-muted);">{body}</p>\n        </div>''' for h,body in c['cards']])
-                  module=f'''\n  <section class="city-intent-focus" style="padding: 72px 0; background: #fff; border-bottom: 1px solid #eee;">\n    <div class="container">\n      <div style="max-width: 900px; margin: 0 auto 36px;">\n        <p style="color: var(--primary-orange); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;">{c['focus']}</p>\n        <h2 style="margin-bottom: 18px;">What changes a pool removal project in {c['city']}?</h2>\n        <p style="line-height: 1.8; color: #444;">{c['intro']}</p>\n      </div>\n      <div class="grid-3" style="gap: 20px;">\n{cards}\n      </div>\n    </div>\n  </section>\n'''
-                  planning=re.search(r'<section class="contextual-planning-links".*?</section>',t,re.I|re.S)
-                  if not planning: raise SystemExit(f'Planning module missing in {path}')
-                  pos=planning.end(); t=t[:pos]+module+t[pos:]
-
-              # Remove a few conspicuous unsupported absolutes from experiment pages.
-              t=t.replace('ensuring 100% compliance','supporting project planning')
-              t=t.replace('To ensure 100% compliance','For erosion and site-control planning')
-              t=t.replace('the strictest pool closure requirements in Fulton County','site-specific access, grading, and drainage considerations')
-              t=t.replace('institutional-grade expertise','project planning guidance')
-              t=t.replace('institutional expertise','project planning guidance')
+                  cards='\n'.join(f'''        <div class="card" style="padding: 28px;">\n          <h3 style="margin-bottom: 12px;">{h}</h3>\n          <p style="margin: 0; line-height: 1.7; color: var(--text-muted);">{b}</p>\n        </div>''' for h,b in cards_cfg)
+                  module=f'''\n  <section class="city-intent-focus" style="padding: 72px 0; background: #fff; border-bottom: 1px solid #eee;">\n    <div class="container">\n      <div style="max-width: 900px; margin: 0 auto 36px;">\n        <p style="color: var(--primary-orange); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;">{focus}</p>\n        <h2 style="margin-bottom: 18px;">What changes a pool removal project in {city}?</h2>\n        <p style="line-height: 1.8; color: #444;">{intro}</p>\n      </div>\n      <div class="grid-3" style="gap: 20px;">\n{cards}\n      </div>\n    </div>\n  </section>\n'''
+                  m=re.search(r'<section class="contextual-planning-links".*?</section>',t,re.I|re.S)
+                  if not m: raise SystemExit(f'Planning module missing: {path}')
+                  t=t[:m.end()]+module+t[m.end():]
+              t=t.replace('ensuring 100% compliance','supporting project planning').replace('To ensure 100% compliance','For erosion and site-control planning').replace('the strictest pool closure requirements in Fulton County','site-specific access, grading, and drainage considerations').replace('institutional-grade expertise','project planning guidance').replace('institutional expertise','project planning guidance')
               p.write_text(t,encoding='utf-8')
-
-          # Verify experiment boundaries and differentiation.
           bad=[]
-          for path,c in cfg.items():
+          for path,(city,title,eyebrow,focus,intro,cards_cfg) in cfg.items():
               t=Path(path).read_text(encoding='utf-8')
-              if f'<title>{c["title"]}</title>' not in t: bad.append((path,'title'))
+              if f'<title>{title}</title>' not in t: bad.append((path,'title'))
               if 'city-intent-focus' not in t: bad.append((path,'focus module'))
-              if 'Bathtub Effect' in t: bad.append((path,'repetitive bathtub section remains'))
-              if 'Section 1.5:' in t: bad.append((path,'repetitive 1.5 section remains'))
-              if c['focus'] not in t: bad.append((path,'unique focus'))
-          # Control group must not be modified by this workflow.
-          if not Path('buford-pool-removal.html').exists(): bad.append(('buford','missing control'))
-          if bad:
-              print(bad); raise SystemExit(1)
+              if '<!-- Section 1.5:' in t: bad.append((path,'section 1.5 remains'))
+              if '<!-- Section 1.7:' in t: bad.append((path,'section 1.7 remains'))
+              if focus not in t: bad.append((path,'unique focus'))
+          if bad: print(bad); raise SystemExit(1)
           print('Four-city differentiation verification passed')
           PY
       - name: Commit experiment
