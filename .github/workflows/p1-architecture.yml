@@ -1,0 +1,128 @@
+name: Phase 1 architecture cleanup
+
+on:
+  push:
+    branches:
+      - seo-p1-architecture
+
+permissions:
+  contents: write
+
+jobs:
+  architecture:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo-p1-architecture
+      - name: Build county-first hierarchy
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          city_map = {
+            'alpharetta-pool-removal.html': ('Fulton County','fulton-county-pool-removal.html','Alpharetta'),
+            'sandy-springs-pool-removal.html': ('Fulton County','fulton-county-pool-removal.html','Sandy Springs'),
+            'roswell-pool-removal.html': ('Fulton County','fulton-county-pool-removal.html','Roswell'),
+            'decatur-pool-removal.html': ('DeKalb County','dekalb-county-pool-removal.html','Decatur'),
+            'dunwoody-pool-removal.html': ('DeKalb County','dekalb-county-pool-removal.html','Dunwoody'),
+            'marietta-pool-removal.html': ('Cobb County','cobb-county-pool-removal.html','Marietta'),
+            'kennesaw-pool-removal.html': ('Cobb County','cobb-county-pool-removal.html','Kennesaw'),
+            'vinings-pool-removal.html': ('Cobb County','cobb-county-pool-removal.html','Vinings'),
+            'lawrenceville-pool-removal.html': ('Gwinnett County','gwinnett-county-pool-removal.html','Lawrenceville'),
+            'duluth-pool-removal.html': ('Gwinnett County','gwinnett-county-pool-removal.html','Duluth'),
+            'suwanee-pool-removal.html': ('Gwinnett County','gwinnett-county-pool-removal.html','Suwanee'),
+            'snellville-pool-removal.html': ('Gwinnett County','gwinnett-county-pool-removal.html','Snellville'),
+            'buford-pool-removal.html': ('Gwinnett County','gwinnett-county-pool-removal.html','Buford'),
+          }
+          county_map = {
+            'fulton-county-pool-removal.html':'Fulton County',
+            'dekalb-county-pool-removal.html':'DeKalb County',
+            'cobb-county-pool-removal.html':'Cobb County',
+            'gwinnett-county-pool-removal.html':'Gwinnett County',
+          }
+
+          changed=[]
+
+          # 1) Replace homepage city-first cards with county hubs.
+          p=Path('index.html')
+          t=p.read_text(encoding='utf-8')
+          old='''          <div style="margin-bottom: 20px;">\n            <h3 style="color: var(--primary-orange); display: flex; align-items: center; margin-bottom: 15px;">\n              <span style="font-size: 1.5rem; margin-right: 15px;">📍</span> Neighborhood-Specific Expertise\n            </h3>\n            <p style="line-height: 1.7; color: #444; margin-bottom: 20px;">Every Atlanta sub-market presents a different challenge. We tailor our <strong>Atlanta pool removal</strong> equipment to your specific neighborhood.</p>\n            <div class="grid-2" style="gap: 15px;">\n              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">\n                <strong style="display: block; margin-bottom: 5px;"><a href="decatur-pool-removal.html">Decatur Pool Removal</a></strong>\n                Tight-access mini-excavation specialist.\n              </div>\n              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">\n                <strong style="display: block; margin-bottom: 5px;"><a href="dunwoody-pool-removal.html">Dunwoody Pool Removal</a></strong>\n                Micaceous silt &amp; estate grading expert.\n              </div>\n              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">\n                <strong style="display: block; margin-bottom: 5px;"><a href="alpharetta-pool-removal.html">Alpharetta</a> / <a href="roswell-pool-removal.html">Roswell</a></strong>\n                Strict HOA &amp; <strong>Atlanta pool removal</strong> compliance.\n              </div>\n            </div>\n          </div>'''
+          new='''          <div style="margin-bottom: 20px;">\n            <h3 style="color: var(--primary-orange); display: flex; align-items: center; margin-bottom: 15px;">\n              <span style="font-size: 1.5rem; margin-right: 15px;">📍</span> Browse Pool Removal by County\n            </h3>\n            <p style="line-height: 1.7; color: #444; margin-bottom: 20px;">Metro Atlanta permitting, access, drainage, and site conditions vary by jurisdiction. Start with your county hub, then choose the city guide for your property.</p>\n            <div class="grid-2" style="gap: 15px;">\n              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">\n                <strong style="display: block; margin-bottom: 5px;"><a href="fulton-county-pool-removal.html">Fulton County Pool Removal</a></strong>\n                Atlanta, Sandy Springs, Roswell, Alpharetta and nearby communities.\n              </div>\n              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">\n                <strong style="display: block; margin-bottom: 5px;"><a href="dekalb-county-pool-removal.html">DeKalb County Pool Removal</a></strong>\n                Decatur, Dunwoody and surrounding DeKalb communities.\n              </div>\n              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">\n                <strong style="display: block; margin-bottom: 5px;"><a href="cobb-county-pool-removal.html">Cobb County Pool Removal</a></strong>\n                Marietta, Kennesaw, Vinings and nearby Cobb communities.\n              </div>\n              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">\n                <strong style="display: block; margin-bottom: 5px;"><a href="gwinnett-county-pool-removal.html">Gwinnett County Pool Removal</a></strong>\n                Lawrenceville, Duluth, Suwanee, Snellville, Buford and nearby communities.\n              </div>\n            </div>\n          </div>'''
+          if old not in t:
+              raise SystemExit('Homepage city-first block not found; refusing broad replacement')
+          t=t.replace(old,new,1)
+          p.write_text(t,encoding='utf-8'); changed.append(str(p))
+
+          # Helper: place a visible breadcrumb after the BreadcrumbList JSON-LD block.
+          def add_breadcrumb(path, crumb_html):
+              p=Path(path); text=p.read_text(encoding='utf-8')
+              if 'class="seo-breadcrumb"' in text:
+                  return
+              pat=re.compile(r'(<script[^>]*type="application/ld\+json"[^>]*>\s*\{.*?"@type"\s*:\s*"BreadcrumbList".*?</script>)',re.I|re.S)
+              m=pat.search(text)
+              if not m:
+                  raise SystemExit(f'BreadcrumbList block not found in {path}')
+              text=text[:m.end()]+'\n'+crumb_html+'\n'+text[m.end():]
+              p.write_text(text,encoding='utf-8'); changed.append(path)
+
+          for path,(county,county_href,city) in city_map.items():
+              crumb=f'''  <div class="container seo-breadcrumb" style="padding-top: 18px; padding-bottom: 0; font-size: 0.9rem; color: #666;">\n    <a href="/">Atlanta Pool Removal</a> <span aria-hidden="true">›</span> <a href="{county_href}">{county} Pool Removal</a> <span aria-hidden="true">›</span> <span>{city}</span>\n  </div>'''
+              add_breadcrumb(path,crumb)
+
+          for path,county in county_map.items():
+              crumb=f'''  <div class="container seo-breadcrumb" style="padding-top: 18px; padding-bottom: 0; font-size: 0.9rem; color: #666;">\n    <a href="/">Atlanta Pool Removal</a> <span aria-hidden="true">›</span> <span>{county} Pool Removal</span>\n  </div>'''
+              add_breadcrumb(path,crumb)
+
+          print('Updated',len(changed),'files')
+          for x in changed: print(x)
+          PY
+
+      - name: Verify hierarchy
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          city_map = {
+            'alpharetta-pool-removal.html':'fulton-county-pool-removal.html',
+            'sandy-springs-pool-removal.html':'fulton-county-pool-removal.html',
+            'roswell-pool-removal.html':'fulton-county-pool-removal.html',
+            'decatur-pool-removal.html':'dekalb-county-pool-removal.html',
+            'dunwoody-pool-removal.html':'dekalb-county-pool-removal.html',
+            'marietta-pool-removal.html':'cobb-county-pool-removal.html',
+            'kennesaw-pool-removal.html':'cobb-county-pool-removal.html',
+            'vinings-pool-removal.html':'cobb-county-pool-removal.html',
+            'lawrenceville-pool-removal.html':'gwinnett-county-pool-removal.html',
+            'duluth-pool-removal.html':'gwinnett-county-pool-removal.html',
+            'suwanee-pool-removal.html':'gwinnett-county-pool-removal.html',
+            'snellville-pool-removal.html':'gwinnett-county-pool-removal.html',
+            'buford-pool-removal.html':'gwinnett-county-pool-removal.html',
+          }
+          bad=[]
+          home=Path('index.html').read_text(encoding='utf-8')
+          for county in ['fulton','dekalb','cobb','gwinnett']:
+              if f'href="{county}-county-pool-removal.html"' not in home: bad.append(('homepage missing county',county))
+          for path,parent in city_map.items():
+              t=Path(path).read_text(encoding='utf-8')
+              if 'class="seo-breadcrumb"' not in t or f'href="{parent}"' not in t: bad.append(('city missing parent',path))
+          for path in ['fulton-county-pool-removal.html','dekalb-county-pool-removal.html','cobb-county-pool-removal.html','gwinnett-county-pool-removal.html']:
+              t=Path(path).read_text(encoding='utf-8')
+              if 'class="seo-breadcrumb"' not in t or 'href="/"' not in t: bad.append(('county missing home',path))
+          if bad:
+              print(bad); raise SystemExit(1)
+          print('Phase 1 hierarchy verification passed')
+          PY
+
+      - name: Commit architecture changes
+        shell: bash
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add '*.html'
+          git commit -m 'SEO P1: establish county-first internal linking hierarchy'
+          git push origin HEAD:seo-p1-architecture
