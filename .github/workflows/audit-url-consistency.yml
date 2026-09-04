@@ -1,0 +1,59 @@
+name: Audit URL consistency
+
+on:
+  push:
+    branches:
+      - seo-p0-url-consistency
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit sitemap canonicals and internal URLs
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, xml.etree.ElementTree as ET
+          BASE='https://atlantapoolremoval.com'
+          SKIP={'.git','scratch','gsc','improvements','crawl_stats'}
+          html=[]
+          for p in sorted(Path('.').rglob('*.html')):
+              if any(x in SKIP for x in p.parts): continue
+              rel=p.as_posix()
+              if rel=='index.html': url=BASE+'/'
+              elif rel=='blog/index.html': url=BASE+'/blog/'
+              else: url=BASE+'/'+rel
+              html.append((p,url))
+          tree=ET.parse('sitemap.xml')
+          ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
+          sitemap={u.find('s:loc',ns).text.strip():u for u in tree.getroot().findall('s:url',ns)}
+          expected={u for _,u in html}
+          print('MISSING_FROM_SITEMAP')
+          for u in sorted(expected-set(sitemap)): print(u)
+          print('EXTRA_IN_SITEMAP')
+          for u in sorted(set(sitemap)-expected): print(u)
+          print('CANONICAL_ISSUES')
+          for p,url in html:
+              t=p.read_text(encoding='utf-8',errors='ignore')
+              m=re.search(r'<link\b[^>]*rel=["\']canonical["\'][^>]*href=["\']([^"\']+)',t,re.I)
+              if not m:
+                  print(p,'MISSING')
+              elif m.group(1).rstrip('/') != url.rstrip('/'):
+                  print(p,'=>',m.group(1),'EXPECTED',url)
+          print('BAD_INTERNAL_ABSOLUTE_URLS')
+          for p,_ in html:
+              t=p.read_text(encoding='utf-8',errors='ignore')
+              for m in re.finditer(r'(?:href|src)=["\'](https?://(?:www\.)?atlantapoolremoval\.com[^"\']*)',t,re.I):
+                  v=m.group(1)
+                  if v.startswith('http://') or '://www.' in v or '/index.html' in v:
+                      print(p,'=>',v)
+          print('BAD_RELATIVE_HOME_LINKS')
+          for p,_ in html:
+              t=p.read_text(encoding='utf-8',errors='ignore')
+              if re.search(r'href=["\'](?:\.\./)?index\.html["\']',t,re.I): print(p)
+          PY
