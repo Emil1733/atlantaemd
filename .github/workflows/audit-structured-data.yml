@@ -16,6 +16,7 @@ jobs:
       - name: Audit schema and NAP signals
         shell: bash
         run: |
+          # Re-audit structured data and visible NAP signals.
           python - <<'PY'
           from pathlib import Path
           import re
