@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# One-time branch helper for normalizing homepage URL references.
 changed = []
 for path in Path('.').rglob('*.html'):
     text = path.read_text(encoding='utf-8')
