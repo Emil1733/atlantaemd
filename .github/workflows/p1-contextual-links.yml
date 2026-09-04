@@ -1,0 +1,75 @@
+name: Phase 1 contextual internal links
+
+on:
+  push:
+    branches:
+      - seo-p1-contextual-links
+
+permissions:
+  contents: write
+
+jobs:
+  links:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo-p1-contextual-links
+      - name: Add contextual planning links
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          city_map = {
+            'alpharetta-pool-removal.html': ('Alpharetta','Fulton County','fulton-county-pool-removal.html'),
+            'sandy-springs-pool-removal.html': ('Sandy Springs','Fulton County','fulton-county-pool-removal.html'),
+            'roswell-pool-removal.html': ('Roswell','Fulton County','fulton-county-pool-removal.html'),
+            'decatur-pool-removal.html': ('Decatur','DeKalb County','dekalb-county-pool-removal.html'),
+            'dunwoody-pool-removal.html': ('Dunwoody','DeKalb County','dekalb-county-pool-removal.html'),
+            'marietta-pool-removal.html': ('Marietta','Cobb County','cobb-county-pool-removal.html'),
+            'kennesaw-pool-removal.html': ('Kennesaw','Cobb County','cobb-county-pool-removal.html'),
+            'vinings-pool-removal.html': ('Vinings','Cobb County','cobb-county-pool-removal.html'),
+            'lawrenceville-pool-removal.html': ('Lawrenceville','Gwinnett County','gwinnett-county-pool-removal.html'),
+            'duluth-pool-removal.html': ('Duluth','Gwinnett County','gwinnett-county-pool-removal.html'),
+            'suwanee-pool-removal.html': ('Suwanee','Gwinnett County','gwinnett-county-pool-removal.html'),
+            'snellville-pool-removal.html': ('Snellville','Gwinnett County','gwinnett-county-pool-removal.html'),
+            'buford-pool-removal.html': ('Buford','Gwinnett County','gwinnett-county-pool-removal.html'),
+          }
+
+          changed=[]
+          for path,(city,county,parent) in city_map.items():
+              p=Path(path); t=p.read_text(encoding='utf-8')
+              if 'contextual-planning-links' in t:
+                  continue
+              module=f'''\n  <section class="contextual-planning-links" style="padding: 28px 0; background: var(--bg-offset); border-bottom: 1px solid #eee;">\n    <div class="container" style="max-width: 900px;">\n      <p style="margin: 0; line-height: 1.8; color: #444;"><strong>Planning a pool removal in {city}?</strong> Start with the <a href="{parent}">{county} pool removal hub</a> for the county-wide overview, then compare <a href="cost.html">pool removal cost factors</a>, review the <a href="atlanta-pool-removal-permits.html">permit planning guide</a>, and see the <a href="pool-removal.html">pool removal process</a> before requesting an estimate.</p>\n    </div>\n  </section>\n'''
+              crumb=re.search(r'<div class="container seo-breadcrumb".*?</div>', t, re.I|re.S)
+              if not crumb:
+                  raise SystemExit(f'Visible breadcrumb not found: {path}')
+              pos=crumb.end()
+              t=t[:pos]+module+t[pos:]
+              p.write_text(t,encoding='utf-8')
+              changed.append(path)
+
+          bad=[]
+          for path,(city,county,parent) in city_map.items():
+              t=Path(path).read_text(encoding='utf-8')
+              if 'contextual-planning-links' not in t: bad.append((path,'module'))
+              for href in [parent,'cost.html','atlanta-pool-removal-permits.html','pool-removal.html']:
+                  if f'href="{href}"' not in t: bad.append((path,href))
+              if t.count('contextual-planning-links') != 1: bad.append((path,'duplicate module'))
+          if bad:
+              print(bad); raise SystemExit(1)
+          print('Contextual internal-link verification passed; updated',len(changed),'city pages')
+          PY
+      - name: Commit contextual link changes
+        shell: bash
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add '*-pool-removal.html'
+          git commit -m 'SEO P1: add contextual links from city pages to hubs and resources'
+          git push origin HEAD:seo-p1-contextual-links
