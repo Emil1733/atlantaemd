@@ -1,3 +1,4 @@
+# Trigger Phase 1 hierarchy build
 name: Phase 1 architecture cleanup
 
 on:
@@ -47,7 +48,6 @@ jobs:
 
           changed=[]
 
-          # 1) Replace homepage city-first cards with county hubs.
           p=Path('index.html')
           t=p.read_text(encoding='utf-8')
           old='''          <div style="margin-bottom: 20px;">\n            <h3 style="color: var(--primary-orange); display: flex; align-items: center; margin-bottom: 15px;">\n              <span style="font-size: 1.5rem; margin-right: 15px;">📍</span> Neighborhood-Specific Expertise\n            </h3>\n            <p style="line-height: 1.7; color: #444; margin-bottom: 20px;">Every Atlanta sub-market presents a different challenge. We tailor our <strong>Atlanta pool removal</strong> equipment to your specific neighborhood.</p>\n            <div class="grid-2" style="gap: 15px;">\n              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">\n                <strong style="display: block; margin-bottom: 5px;"><a href="decatur-pool-removal.html">Decatur Pool Removal</a></strong>\n                Tight-access mini-excavation specialist.\n              </div>\n              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">\n                <strong style="display: block; margin-bottom: 5px;"><a href="dunwoody-pool-removal.html">Dunwoody Pool Removal</a></strong>\n                Micaceous silt &amp; estate grading expert.\n              </div>\n              <div style="background: #f8f9fa; padding: 18px; border-radius: 8px; border: 1px solid #eee; font-size: 0.9rem;">\n                <strong style="display: block; margin-bottom: 5px;"><a href="alpharetta-pool-removal.html">Alpharetta</a> / <a href="roswell-pool-removal.html">Roswell</a></strong>\n                Strict HOA &amp; <strong>Atlanta pool removal</strong> compliance.\n              </div>\n            </div>\n          </div>'''
@@ -57,7 +57,6 @@ jobs:
           t=t.replace(old,new,1)
           p.write_text(t,encoding='utf-8'); changed.append(str(p))
 
-          # Helper: place a visible breadcrumb after the BreadcrumbList JSON-LD block.
           def add_breadcrumb(path, crumb_html):
               p=Path(path); text=p.read_text(encoding='utf-8')
               if 'class="seo-breadcrumb"' in text:
@@ -86,7 +85,6 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re
           city_map = {
             'alpharetta-pool-removal.html':'fulton-county-pool-removal.html',
             'sandy-springs-pool-removal.html':'fulton-county-pool-removal.html',
