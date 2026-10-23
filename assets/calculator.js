@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle Form Submission (Step 3)
     const leadForm = document.getElementById('calc-lead-gate');
     if (leadForm) {
-        leadForm.onsubmit = function(e) {
+        leadForm.onsubmit = async function(e) {
             e.preventDefault();
             
             // HoneyPot Verification
@@ -126,26 +126,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log("Syncing to Supabase:", leadData);
 
-            fetch('https://nbeqlzzpxxydgmfactzm.supabase.co/rest/v1/emd_leads_atlanta', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5iZXFsenpweHh5ZGdtZmFjdHptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NzMyMjEsImV4cCI6MjA3MTM0OTIyMX0.x_oBYIkqkgtZCqcjVJb7mipojIAM4sHwsDJsDVutnhs',
-                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5iZXFsenpweHh5ZGdtZmFjdHptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NzMyMjEsImV4cCI6MjA3MTM0OTIyMX0.x_oBYIkqkgtZCqcjVJb7mipojIAM4sHwsDJsDVutnhs'
-                },
-                body: JSON.stringify(leadData)
-            })
-            .then(res => {
-                if (res.ok) {
-                    console.log("LEAD SYNCED TO SUPABASE");
-                } else {
-                    console.error("Supabase error status:", res.status);
-                }
-            })
-            .catch(err => console.error("SUPABASE FETCH ERROR:", err));
-            
-            // Show Results
-            goToStep(4);
+            const submitButton = leadForm.querySelector('button[type="submit"]');
+            if (submitButton?.disabled) return false;
+            if (submitButton) submitButton.disabled = true;
+            try {
+                const response = await fetch('https://nbeqlzzpxxydgmfactzm.supabase.co/rest/v1/emd_leads_atlanta', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5iZXFsenpweHh5ZGdtZmFjdHptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NzMyMjEsImV4cCI6MjA3MTM0OTIyMX0.x_oBYIkqkgtZCqcjVJb7mipojIAM4sHwsDJsDVutnhs',
+                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5iZXFsenpweHh5ZGdtZmFjdHptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU3NzMyMjEsImV4cCI6MjA3MTM0OTIyMX0.x_oBYIkqkgtZCqcjVJb7mipojIAM4sHwsDJsDVutnhs'
+                    },
+                    body: JSON.stringify(leadData)
+                });
+                if (!response.ok) throw new Error('Lead submission failed: ' + response.status);
+                goToStep(4);
+            } catch (err) {
+                console.error('Atlanta lead submission failed:', err);
+                alert('Your request could not be sent. Please retry or call (404) 649-0660.');
+            } finally {
+                if (submitButton) submitButton.disabled = false;
+            }
             return false;
         };
     }
