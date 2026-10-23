@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             
             // HoneyPot Verification
-            if (document.getElementsByName('b_address')[0]?.value) {
+            if (leadForm.querySelector('[name="b_address"]')?.value) {
                 console.warn("Spam detected.");
                 goToStep(4); // Fake success
                 return false;
