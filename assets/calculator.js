@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 goToStep(4);
             } catch (err) {
                 console.error('Atlanta lead submission failed:', err);
-                alert('Your request could not be sent. Please retry or call (404) 649-0660.');
+                alert('Your request could not be sent. Please try again shortly.');
             } finally {
                 if (submitButton) submitButton.disabled = false;
             }
